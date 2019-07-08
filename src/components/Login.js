@@ -5,6 +5,16 @@ import LoginForm from './LoginForm'
 const BaseUrl = 'http://localhost:8000/ivote/'
 class Login extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstName: '',
+      lastName: '',
+      voterID: '',
+
+    }
+  }
+
   getVoter = (userParams) => {
 
     const queryParams = {
@@ -19,6 +29,15 @@ class Login extends Component {
     axios.get(BaseUrl + 'voter', { params: queryParams })
       .then((response) => {
         console.log(response)
+        console.log(response.data.voter_id)
+        const data = response.data
+        const newState = {
+          firstName: data.first_name,
+          lastName: data.last_name,
+          voterID: data.voter_id,
+        }
+        this.setState(newState)
+
       })
       .catch((error) => {
         console.log(error.message)
@@ -27,6 +46,7 @@ class Login extends Component {
 
   }
   render() {
+    console.log(this.state)
     return (
       <div>
         Login

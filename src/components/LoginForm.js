@@ -26,8 +26,8 @@ class LoginForm extends Component {
     event.preventDefault();
     this.props.getVoterCallback(this.state)
     this.setState({
-      firstName: '',
-      lastName: '',
+      // firstName: '',
+      // lastName: '',
 
     })
   }
