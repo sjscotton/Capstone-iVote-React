@@ -11,6 +11,7 @@ class Login extends Component {
       firstName: '',
       lastName: '',
       voterID: '',
+      address: '',
 
     }
   }
@@ -21,9 +22,6 @@ class Login extends Component {
       first_name: userParams.firstName,
       last_name: userParams.lastName,
       birthdate: `${userParams.month}-${userParams.day}-${userParams.year}`
-      // month: userParams.month,
-      // day: userParams.day,
-      // year: userParams.year
     }
     console.log(queryParams, "inside getVoter")
     axios.get(BaseUrl + 'voter', { params: queryParams })
@@ -35,16 +33,32 @@ class Login extends Component {
           firstName: data.first_name,
           lastName: data.last_name,
           voterID: data.voter_id,
+          address: data.address
         }
         this.setState(newState)
-
+        this.getVotingHistory(data.voter_id)
       })
       .catch((error) => {
         console.log(error.message)
         console.log(error.body)
       })
-
   }
+
+  getVotingHistory(voterID) {
+    console.log("inside getVotingHistory")
+    axios.get(BaseUrl + 'vote_dates', { params: { state_voter_id: voterID } })
+      .then((response) => {
+        console.log(response)
+        console.log(response.data.voting_days)
+      })
+      .catch((error) => {
+        console.log(error.message)
+        console.log(error.body)
+      })
+  }
+
+
+
   render() {
     console.log(this.state)
     return (
