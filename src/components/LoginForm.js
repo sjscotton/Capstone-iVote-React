@@ -7,13 +7,16 @@ class LoginForm extends Component {
     this.state = {
       firstName: '',
       lastName: '',
-      birthdate: '',
+      month: '',
+      day: '',
+      year: '',
+
     }
   }
   onInputChange = (event) => {
     const updatedState = {};
-    console.log(event.target.name)
-    console.log(event.target.value)
+    // console.log(event.target.name)
+    // console.log(event.target.value)
     updatedState[event.target.name] = event.target.value;
     this.setState(updatedState);
   }
@@ -21,12 +24,15 @@ class LoginForm extends Component {
   onSubmit = (event) => {
     console.log("in prevent default")
     event.preventDefault();
+    this.props.getVoterCallback(this.state)
     this.setState({
       firstName: '',
       lastName: '',
-      birthdate: '',
+
     })
   }
+
+
 
   render() {
     return (
@@ -48,16 +54,38 @@ class LoginForm extends Component {
           onChange={this.onInputChange}
         >
         </input>
-        <label htmlFor="birthdate">Birthdate:</label>
+        Birthdate
+        Month:
         <input
-          name="birthdate"
+          name="month"
           type="text"
-          value={this.state.birthdate}
+          value={this.state.month}
           onChange={this.onInputChange}
-          placeholder="MM/DD/YYYY"
-        >
-        </input>
-      </form>
+          placeholder="02"
+        ></input>
+        Day:
+        <input
+          name="day"
+          type="text"
+          value={this.state.day}
+          onChange={this.onInputChange}
+          placeholder="20"
+        ></input>
+        Year:
+        <input
+          name="year"
+          type="text"
+          value={this.state.year}
+          onChange={this.onInputChange}
+          placeholder="1984"
+        ></input>
+
+        <button
+          type="submit"
+          name="submit"
+          value="search"
+        >Find me!</button>
+      </form >
     )
   }
 }
