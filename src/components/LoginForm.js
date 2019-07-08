@@ -12,6 +12,8 @@ class LoginForm extends Component {
   }
   onInputChange = (event) => {
     const updatedState = {};
+    console.log(event.target.name)
+    console.log(event.target.value)
     updatedState[event.target.name] = event.target.value;
     this.setState(updatedState);
   }
@@ -30,12 +32,29 @@ class LoginForm extends Component {
     return (
       <form
         onSubmit={this.onSubmit}>
-        <lable htmlFor="firstName">First Name:</lable>
+        <label htmlFor="firstName">First Name:</label>
         <input
           name="firstName"
           type="text"
           value={this.state.firstName}
           onChange={this.onInputChange}
+        >
+        </input>
+        <label htmlFor="lastName">Last Name:</label>
+        <input
+          name="lastName"
+          type="text"
+          value={this.state.lastName}
+          onChange={this.onInputChange}
+        >
+        </input>
+        <label htmlFor="birthdate">Birthdate:</label>
+        <input
+          name="birthdate"
+          type="text"
+          value={this.state.birthdate}
+          onChange={this.onInputChange}
+          placeholder="MM/DD/YYYY"
         >
         </input>
       </form>
