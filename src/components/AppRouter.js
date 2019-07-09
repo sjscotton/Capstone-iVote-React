@@ -13,15 +13,24 @@ class AppRouter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      votingHistory: []
+      votingHistory: [],
+      loggedIn: false,
     }
   }
 
-  setVotingHistory = (votingDates) => {
-    console.log("inside setVotingHistory", votingDates)
-    this.setState({ votingHistory: votingDates })
+
+  login = (votingDates) => {
+    const newState = {
+      loggedIn: true,
+      votingHistory: votingDates
+    }
+    this.setState(newState)
+  }
+  setLogout = () => {
+    this.setState({ loggedIn: false })
   }
   render() {
+    console.log("logged in", this.state)
     return (
       <Router>
         <div className="App">
@@ -45,7 +54,9 @@ class AppRouter extends Component {
               // component={Search} 
               render={(props) =>
                 <Login
-                  setVotingHistoryCallback={this.setVotingHistory} />}
+                  setVotingHistoryCallback={this.setVotingHistory}
+                  loginCallback={this.login}
+                  loggedIn={this.state.loggedIn} />}
             />
             <Route
               path="/stats/"
@@ -53,6 +64,7 @@ class AppRouter extends Component {
               render={(props) =>
                 <Stats
                   votingHistory={this.state.votingHistory}
+                  loggedIn={this.state.loggedIn}
                 />}
             />
             <Route

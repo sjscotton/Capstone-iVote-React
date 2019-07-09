@@ -12,9 +12,23 @@ class Login extends Component {
       lastName: '',
       voterID: '',
       address: '',
+      otherAddresses: []
 
     }
   }
+
+  componentDidMount() {
+    axios.get(BaseUrl + 'address')
+      .then((response) => {
+        console.log(response.data.addresses)
+        this.setState({ otherAddresses: response.data.addresses })
+      })
+      .catch((error) => {
+        console.log(error.message)
+      })
+
+  }
+
 
   getVoter = (userParams) => {
 
@@ -26,8 +40,6 @@ class Login extends Component {
     console.log(queryParams, "inside getVoter")
     axios.get(BaseUrl + 'voter', { params: queryParams })
       .then((response) => {
-        console.log(response)
-        console.log(response.data.voter_id)
         const data = response.data
         const newState = {
           firstName: data.first_name,
@@ -37,10 +49,11 @@ class Login extends Component {
         }
         this.setState(newState)
         this.getVotingHistory(data.voter_id)
+
       })
       .catch((error) => {
         console.log(error.message)
-        console.log(error.body)
+
       })
   }
 
@@ -48,25 +61,26 @@ class Login extends Component {
     console.log("inside getVotingHistory")
     axios.get(BaseUrl + 'vote_dates', { params: { state_voter_id: voterID } })
       .then((response) => {
-        console.log(response)
         console.log(response.data.voting_days)
-        this.props.setVotingHistoryCallback(response.data.voting_days)
+        this.setState({ votingHistory: response.data.voting_days })
+        // this.props.setVotingHistoryCallback(response.data.voting_days)
+        this.props.loginCallback(response.data.voting_days)
       })
       .catch((error) => {
         console.log(error.message)
-        console.log(error.body)
       })
   }
 
 
 
   render() {
-    console.log(this.state)
+    console.log("Login state", this.state)
     return (
       <div>
         Login
         <LoginForm
           getVoterCallback={this.getVoter} />
+
       </div>
     )
   }
