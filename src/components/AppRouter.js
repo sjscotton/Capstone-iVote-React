@@ -8,6 +8,19 @@ import Reps from './Reps'
 
 
 class AppRouter extends Component {
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      votingHistory: []
+    }
+  }
+
+  setVotingHistory = (votingDates) => {
+    console.log("inside setVotingHistory", votingDates)
+    this.setState({ votingHistory: votingDates })
+  }
   render() {
     return (
       <Router>
@@ -23,37 +36,28 @@ class AppRouter extends Component {
               <li>
                 <Link to="/reps/">My Reps</Link>
               </li>
-
             </ul>
-
-
           </nav>
-
           <main >
-
-
-
-
 
             <Route
               path="/login/"
               // component={Search} 
               render={(props) =>
-                <Login />}
+                <Login
+                  setVotingHistoryCallback={this.setVotingHistory} />}
             />
             <Route
               path="/stats/"
               // component={Library}
               render={(props) =>
                 <Stats
-
                 />}
             />
             <Route
               path="/reps/"
               render={(props) =>
                 <Reps
-
                 />}
             />
           </main>

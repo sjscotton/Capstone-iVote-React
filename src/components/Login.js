@@ -50,7 +50,7 @@ class Login extends Component {
       .then((response) => {
         console.log(response)
         console.log(response.data.voting_days)
-        this.setState(newState)
+        this.props.setVotingHistoryCallback(response.data.voting_days)
       })
       .catch((error) => {
         console.log(error.message)
