@@ -52,6 +52,7 @@ class AppRouter extends Component {
               // component={Library}
               render={(props) =>
                 <Stats
+                  votingHistory={this.state.votingHistory}
                 />}
             />
             <Route

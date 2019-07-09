@@ -1,0 +1,20 @@
+.election-date {
+  width: 2rem;
+  height: 2rem;
+}
+
+.voted {
+  background-color: green;
+}
+
+.missed {
+  background-color: red;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  text-align: center;
+  
+}
