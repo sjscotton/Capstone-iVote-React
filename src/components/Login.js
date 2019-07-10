@@ -49,7 +49,7 @@ class Login extends Component {
         }
         this.setState(newState)
         this.getVotingHistory(data.voter_id)
-
+        this.getElectionDates(data.county_code)
       })
       .catch((error) => {
         console.log(error.message)
@@ -71,7 +71,15 @@ class Login extends Component {
       })
   }
 
-
+  getElectionDates(countyCode) {
+    axios.get(BaseUrl + 'elections', { params: { county_code: countyCode } })
+      .then((response) => {
+        console.log("inside getElectionDates", response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
 
   render() {
     console.log("Login state", this.state)

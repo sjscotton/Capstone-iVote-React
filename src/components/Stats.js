@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './Stats.css'
 
-const ElectionDates = ['2017-08-01', '2017-11-07', '2018-02-13', '2018-08-07', '2018-11-06', '2019-02-12',];
+const ElectionDates = ['2017-02-14', '2017-04-25', '2017-08-01', '2017-11-07', '2018-02-13', '2018-04-24', '2018-08-07', '2018-11-06', '2019-02-12',];
 
 class Stats extends Component {
 
