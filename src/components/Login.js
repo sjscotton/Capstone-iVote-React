@@ -74,7 +74,8 @@ class Login extends Component {
   getElectionDates(countyCode) {
     axios.get(BaseUrl + 'elections', { params: { county_code: countyCode } })
       .then((response) => {
-        console.log("inside getElectionDates", response.data)
+        console.log("inside getElectionDates", response.data.election_dates)
+        this.props.setElectionDatesCallback(response.data.election_dates)
       })
       .catch((error) => {
         console.log(error)
