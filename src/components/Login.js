@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import LoginForm from './LoginForm'
 
@@ -65,6 +66,7 @@ class Login extends Component {
         this.setState({ votingHistory: response.data.voting_days })
         // this.props.setVotingHistoryCallback(response.data.voting_days)
         this.props.loginCallback(response.data.voting_days)
+        this.props.history.push('/Stats')
       })
       .catch((error) => {
         console.log(error.message)
@@ -95,4 +97,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);
