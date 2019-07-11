@@ -5,7 +5,7 @@ import Login from './Login'
 import Stats from './Stats'
 import Reps from './Reps'
 
-
+import './AppRouter.css'
 
 class AppRouter extends Component {
 

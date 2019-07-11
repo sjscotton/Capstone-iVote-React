@@ -1,0 +1,30 @@
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.nav-list li {
+  display: inline-block;
+  margin-right: calc(.5rem + 8vmin)
+}
+.nav-list li:last-child {
+  margin-right: 0
+
+}
+.nav-list a:visited {
+  color: white;
+  /* text-decoration: none; */
+}
+
+
+nav.nav-bar {
+  background-color: #282c34;
+  height: calc(2rem + 6vmin);
+  display: flex;
+  flex-direction: row;
+  /* align-items: center;
+  justify-content: center; */
+  font-size: calc(10px + 2vmin);
+  color: white;
+}

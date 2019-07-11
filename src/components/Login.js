@@ -86,7 +86,7 @@ class Login extends Component {
     console.log("Login state", this.state)
     return (
       <div>
-        Login
+        <h2>Login</h2>
         <LoginForm
           getVoterCallback={this.getVoter} />
 

@@ -38,7 +38,7 @@ class LoginForm extends Component {
     return (
       <form
         onSubmit={this.onSubmit}>
-        <label htmlFor="firstName">First Name:</label>
+        <h3>First Name:</h3>
         <input
           name="firstName"
           type="text"
@@ -46,7 +46,7 @@ class LoginForm extends Component {
           onChange={this.onInputChange}
         >
         </input>
-        <label htmlFor="lastName">Last Name:</label>
+        <h3>Last Name:</h3>
         <input
           name="lastName"
           type="text"
@@ -54,8 +54,8 @@ class LoginForm extends Component {
           onChange={this.onInputChange}
         >
         </input>
-        Birthdate
-        Month:
+        <h3>Birthdate</h3>
+        <h4>Month:</h4>
         <input
           name="month"
           type="text"
@@ -63,7 +63,7 @@ class LoginForm extends Component {
           onChange={this.onInputChange}
           placeholder="02"
         ></input>
-        Day:
+        <h4>Day:</h4>
         <input
           name="day"
           type="text"
@@ -71,7 +71,7 @@ class LoginForm extends Component {
           onChange={this.onInputChange}
           placeholder="20"
         ></input>
-        Year:
+        <h4>Year:</h4>
         <input
           name="year"
           type="text"
