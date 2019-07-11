@@ -7,13 +7,24 @@ const ElectionDates = ['2017-02-14', '2017-04-25', '2017-08-01', '2017-11-07', '
 class Stats extends Component {
 
   generateVotingBoxes(votingDates) {
-    return ElectionDates.map((date) => {
-      const style = votingDates.includes(date) ? "election-date voted" : "election-date missed";
+    // return ElectionDates.map((date) => {
+    //   const style = votingDates.includes(date) ? "election-date voted" : "election-date missed";
+    //   return (
+    //     <div className={style}></div>
+    //   )
+
+    // })
+    console.log("max elections", this.props.maxElections)
+    return Array(this.props.maxElections).fill().map((none, i) => {
+
+      const style = votingDates.length > i ? "election-date voted" : "election-date missed";
       return (
         <div className={style}></div>
       )
 
     })
+
+
   }
   render() {
     return (

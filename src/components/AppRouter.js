@@ -16,6 +16,7 @@ class AppRouter extends Component {
       votingHistory: [],
       loggedIn: false,
       electionDates: [],
+      maxElections: 0,
     }
   }
 
@@ -30,11 +31,11 @@ class AppRouter extends Component {
   setLogout = () => {
     this.setState({ loggedIn: false })
   }
-  setElectionDates = (electionDates) => {
-    this.setState({ electionDates: electionDates })
+  setElectionDates = (maxElections) => {
+    this.setState({ maxElections: maxElections })
   }
   render() {
-    console.log("logged in", this.state)
+    console.log("AppRouter state", this.state)
     return (
       <Router>
         <div className="App">
@@ -70,6 +71,7 @@ class AppRouter extends Component {
                 <Stats
                   votingHistory={this.state.votingHistory}
                   loggedIn={this.state.loggedIn}
+                  maxElections={this.state.maxElections}
                 />}
             />
             <Route
