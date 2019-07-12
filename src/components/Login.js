@@ -90,7 +90,7 @@ class Login extends Component {
     console.log("Login state", this.state)
     return (
       <div>
-        <h2>Login</h2>
+        <h2 className='page-title'></h2>
         <LoginForm
           getVoterCallback={this.getVoter} />
 

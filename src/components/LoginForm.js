@@ -46,103 +46,108 @@ class LoginForm extends Component {
       <section>
         <form
           onSubmit={this.onSubmit}>
-          <h3>Name:</h3>
-          <TextField
-            className='mdc-text-field--outlined'
-            label='First'
-            variant="outlined"
-            name="firstName"
-            type="text"
-            value={this.state.firstName}
-            onChange={this.onInputChange}
-          >
-            {/* <input
+          <h3>Name</h3>
+          <div className='form-field'>
+
+            <TextField
+              className='mdc-text-field--outlined'
+              label='First'
+              variant="outlined"
+              name="firstName"
+              type="text"
+              value={this.state.firstName}
+              onChange={this.onInputChange}
+            >
+              {/* <input
               name="firstName"
               type="text"
               value={this.state.firstName}
               onChange={this.onInputChange}
             /> */}
-          </TextField>
-
-          <TextField
-            className='mdc-text-field--outlined'
-            label='Last'
-            variant="outlined"
-            name="lastName"
-            type="text"
-            value={this.state.lastName}
-            onChange={this.onInputChange}>
-            {/* <input
+            </TextField></div>
+          <div className='form-field'>
+            <TextField
+              className='mdc-text-field--outlined form-field'
+              label='Last'
+              variant="outlined"
+              name="lastName"
+              type="text"
+              value={this.state.lastName}
+              onChange={this.onInputChange}>
+              {/* <input
               name="lastName"
               type="text"
               value={this.state.lastName}
               onChange={this.onInputChange}
             /> */}
-          </TextField>
-
+            </TextField>
+          </div>
           <h3>Birthday</h3>
+          <div className='form-field'>
+            <TextField
+              className='mdc-text-field--outlined'
+              label='Month'
+              variant="outlined"
+              name="month"
+              type="text"
+              value={this.state.month}
+              onChange={this.onInputChange}>
+              <input
+              // name="month"
+              // type="text"
+              // value={this.state.month}
+              // onChange={this.onInputChange}
 
-          <TextField
-            className='mdc-text-field--outlined'
-            label='Month'
-            variant="outlined"
-            name="month"
-            type="text"
-            value={this.state.month}
-            onChange={this.onInputChange}>
-            <input
-            // name="month"
-            // type="text"
-            // value={this.state.month}
-            // onChange={this.onInputChange}
+              />
+            </TextField>
+          </div>
+          <div className='form-field'>
+            <TextField
+              className='mdc-text-field--outlined'
+              label='Day'
+              variant="outlined"
+              name="day"
+              type="text"
+              value={this.state.day}
+              onChange={this.onInputChange}>
 
-            />
-          </TextField>
-
-          <TextField
-            className='mdc-text-field--outlined'
-            label='Day'
-            variant="outlined"
-            name="day"
-            type="text"
-            value={this.state.day}
-            onChange={this.onInputChange}>
-
-            {/* <input
+              {/* <input
               name="day"
               type="text"
               value={this.state.day}
               onChange={this.onInputChange}
               placeholder="20"
             /> */}
-          </TextField>
-
-
-          <TextField
-            className='mdc-text-field--outlined'
-            label='Year'
-            variant="outlined"
-            name="year"
-            type="text"
-            value={this.state.year}
-            onChange={this.onInputChange}>
-            {/* <input
+            </TextField>
+          </div>
+          <div className='form-field'>
+            <TextField
+              className='mdc-text-field--outlined'
+              label='Year'
+              variant="outlined"
+              name="year"
+              type="text"
+              value={this.state.year}
+              onChange={this.onInputChange}>
+              {/* <input
               name="year"
               type="text"
               value={this.state.year}
               onChange={this.onInputChange}
               placeholder="1984"
             /> */}
-          </TextField>
-          <br></br>
+            </TextField>
+          </div>
+          <div className='btn'>
 
-          <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            name="submit"
-            value="search"
-          >Find me!</Button>
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              name="submit"
+              value="search"
+            >Find me!</Button>
+          </div>
         </form >
       </section >
     )

@@ -3,3 +3,12 @@
 .App {
   text-align: center;
 }
+
+.form-field {
+  margin: .5rem 1.5rem .5rem 1.5rem;
+  display: inline-block;
+}
+
+.btn {
+  margin-top: 2rem;
+}

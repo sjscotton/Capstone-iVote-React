@@ -42,7 +42,7 @@ class AppRouter extends Component {
           <nav className="nav-bar">
             <ul className="nav-list">
               <li>
-                <Link to="/login/">Login</Link>
+                <Link to="/login/">Find Me!</Link>
               </li>
               <li>
                 <Link to="/stats/">My Stats</Link>

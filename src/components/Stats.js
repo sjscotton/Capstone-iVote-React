@@ -29,7 +29,7 @@ class Stats extends Component {
   render() {
     return (
       <div>
-        Stats
+        <h2>Stats</h2>
         {this.props.votingHistory}
         <div className="flex-container">
 
