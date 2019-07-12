@@ -4,7 +4,7 @@ class Reps extends Component {
   render() {
     return (
       <div>
-        Reps
+        <h2>My Representatives</h2>
       </div>
     )
   }

@@ -27,10 +27,11 @@ class Stats extends Component {
 
   }
   render() {
+    const voteRecord = `You voted in ${this.props.votingHistory.length} of the last ${this.props.maxElections} elections.`
     return (
       <div>
         <h2>Stats</h2>
-        {this.props.votingHistory}
+        <h4>{voteRecord}</h4>
         <div className="flex-container">
 
           {this.generateVotingBoxes(this.props.votingHistory)}
