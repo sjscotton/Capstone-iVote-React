@@ -28,18 +28,28 @@ import { VictoryPie, VictoryLabel, VictoryTooltip } from 'victory';
 //   }
 // }
 class CustomLabel extends Component {
+
   render() {
+    const index = this.props.index
+    if (index == 0) {
+      console.log(this.props)
+    }
+    const percent = this.props.data[this.props.index].percent
+    console.log(percent)
+    const numVotes = this.props.datum.y
+    console.log("num votes", numVotes)
+    const plural = (this.props.text === '1') ? '' : 's';
     return (
       <g>
         <VictoryLabel {...this.props} />
         <VictoryTooltip
           {...this.props}
           x={200} y={250}
-          text={`# ${this.props.text}`}
+          text={`%${percent} voted\n${this.props.text} time${plural}`}
           orientation="top"
           pointerLength={0}
           cornerRadius={50}
-          width={100}
+          width={150}
           height={100}
           flyoutStyle={{ fill: "#00125c" }}
         />
@@ -59,18 +69,18 @@ class PieGraph extends Component {
           colorScale={['#00125c', '#570d68', '#910468', '#c21c60', '#e64450', '#fe723c', '#ffa227', '#ffd321']}
           style={{ labels: { fill: "white", fontSize: 24 } }}
           innerRadius={80}
-          labelRadius={120}
+          labelRadius={110}
           labels={(d) => d.y}
           labelComponent={<CustomLabel />}
           data={[
-            { x: 1, y: '18-24' },
-            { x: 2, y: 4 },
-            { x: 3, y: 2 },
-            { x: 4, y: 3 },
-            { x: 5, y: 1 },
-            { x: 6, y: 3 },
-            { x: 7, y: 4 },
-            { x: 8, y: 7 }
+            { label: 1, y: 10, percent: 35 },
+            { label: 2, y: 4, percent: 10 },
+            { label: 3, y: 2, percent: 20 },
+            { label: 4, y: 3, percent: 7 },
+            { label: 5, y: 1, percent: 19 },
+            { label: 6, y: 3, percent: 35 },
+            { label: 7, y: 4, percent: 35 },
+            { label: 8, y: 7, percent: 35 }
           ]}
         />
       </div>
