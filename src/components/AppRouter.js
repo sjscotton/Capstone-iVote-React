@@ -7,6 +7,8 @@ import Reps from './Reps'
 
 import './AppRouter.css'
 
+const baseUrl = 'http://localhost:8000/ivote/'
+
 class AppRouter extends Component {
 
 
@@ -62,7 +64,8 @@ class AppRouter extends Component {
                   setVotingHistoryCallback={this.setVotingHistory}
                   loginCallback={this.login}
                   loggedIn={this.state.loggedIn}
-                  setElectionDatesCallback={this.setElectionDates} />}
+                  setElectionDatesCallback={this.setElectionDates}
+                  baseUrl={baseUrl} />}
             />
             <Route
               path="/stats/"

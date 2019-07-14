@@ -1,17 +1,21 @@
 ul {
   list-style: none;
+  padding: 0;
 }
 a {
   text-decoration: none;
 }
 .nav-list li {
   display: inline-block;
-  margin-right: calc(.5rem + 8vmin)
+  margin-right: calc( 8vmin)
 }
 .nav-list li:last-child {
   margin-right: 0
-
 }
+.nav-list li:first-child {
+  margin-left: 8vmin
+}
+
 .nav-list a:visited {
   color: white;
   /* text-decoration: none; */
@@ -20,11 +24,13 @@ a {
 
 nav.nav-bar {
   background-color: #282c34;
-  height: calc(2rem + 6vmin);
+  height: calc(2.2rem + 3vmin);
+  /* max-height: 4rem; */
   display: flex;
   flex-direction: row;
   /* align-items: center;
   justify-content: center; */
-  font-size: calc(10px + 2vmin);
+  font-size: calc(12px + 1vmin);
+  
   color: white;
 }

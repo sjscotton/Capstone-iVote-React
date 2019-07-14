@@ -12,11 +12,20 @@
   background-color: red;
 }
 
-.flex-container {
+.flex-container, .graph-container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   width: 100vw;
   
+}
+
+
+/* Graph Styles */
+
+.graph {
+  width: 100vw;
+  max-width: 20rem;
+
 }

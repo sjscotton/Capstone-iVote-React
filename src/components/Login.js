@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import LoginForm from './LoginForm'
 
-const BaseUrl = 'http://localhost:8000/ivote/'
+
 class Login extends Component {
 
   constructor(props) {
@@ -19,7 +19,7 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    axios.get(BaseUrl + 'address')
+    axios.get(this.props.baseUrl + 'address')
       .then((response) => {
         console.log(response.data.addresses)
         this.setState({ otherAddresses: response.data.addresses })
@@ -39,7 +39,7 @@ class Login extends Component {
       birthdate: `${userParams.month}-${userParams.day}-${userParams.year}`
     }
     console.log(queryParams, "inside getVoter")
-    axios.get(BaseUrl + 'voter', { params: queryParams })
+    axios.get(this.props.baseUrl + 'voter', { params: queryParams })
       .then((response) => {
         const data = response.data
         const newState = {
@@ -60,7 +60,7 @@ class Login extends Component {
 
   getVotingHistory(voterID) {
     console.log("inside getVotingHistory")
-    axios.get(BaseUrl + 'vote_dates', { params: { state_voter_id: voterID } })
+    axios.get(this.props.baseUrl + 'vote_dates', { params: { state_voter_id: voterID } })
       .then((response) => {
         console.log(response.data.voting_days)
         this.setState({ votingHistory: response.data.voting_days })
@@ -74,7 +74,7 @@ class Login extends Component {
   }
 
   getElectionDates(countyCode, city) {
-    axios.get(BaseUrl + 'elections', { params: { county_code: countyCode, city: city } })
+    axios.get(this.props.baseUrl + 'elections', { params: { county_code: countyCode, city: city } })
       .then((response) => {
         console.log("inside getElectionDates", response.data)
         this.props.setElectionDatesCallback(response.data.max_elections)
