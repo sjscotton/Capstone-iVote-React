@@ -38,7 +38,7 @@ class ChartCard extends Component {
         <h4>Graph Title</h4>
         <div className='graph'>
           <VictoryChart
-            domainPadding={20}
+            domainPadding={15}
             theme={VictoryTheme.material}
           >
             <VictoryAxis

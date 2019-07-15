@@ -102,7 +102,7 @@ class AppRouter extends Component {
               render={(props) =>
                 <Stats
                   votingHistory={this.state.votingHistory}
-                  // loggedIn={this.state.loggedIn}
+                  loggedIn={this.state.loggedIn}
                   // maxElections={this.state.maxElections}
                   voterInfo={this.state}
                   baseUrl={baseUrl}

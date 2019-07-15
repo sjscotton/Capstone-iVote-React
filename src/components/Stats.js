@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { withRouter } from 'react-router-dom';
 
 import BarChart from './BarChart'
 import PieGraph from './PieGraph'
@@ -46,6 +46,9 @@ class Stats extends Component {
     }
   }
   render() {
+    if (!this.props.loggedIn) {
+      this.props.history.push('/Login')
+    }
     const ageGroup = this.props.voterInfo.ageGroup;
     // const stats = this.props.voterInfo.stats[ageGroup]
 
@@ -69,4 +72,4 @@ class Stats extends Component {
   }
 }
 
-export default Stats;
+export default withRouter(Stats);
