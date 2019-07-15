@@ -44,13 +44,14 @@ class CustomLabel extends Component {
         <VictoryLabel {...this.props} />
         <VictoryTooltip
           {...this.props}
-          x={200} y={250}
+          x={200} y={275}
           text={`%${percent} voted\n${this.props.text} time${plural}`}
+          // style={{ labels: { fill: "#00125c", fontSize: 24 } }}
           orientation="top"
           pointerLength={0}
-          cornerRadius={50}
+          cornerRadius={75}
           width={150}
-          height={100}
+          height={150}
           flyoutStyle={{ fill: "#00125c" }}
         />
       </g>
@@ -68,7 +69,7 @@ class PieGraph extends Component {
         <VictoryPie
           colorScale={['#00125c', '#570d68', '#910468', '#c21c60', '#e64450', '#fe723c', '#ffa227', '#ffd321']}
           style={{ labels: { fill: "white", fontSize: 24 } }}
-          innerRadius={80}
+          innerRadius={0}
           labelRadius={110}
           labels={(d) => d.y}
           labelComponent={<CustomLabel />}
