@@ -30,14 +30,14 @@ import { VictoryPie, VictoryLabel, VictoryTooltip } from 'victory';
 class CustomLabel extends Component {
 
   render() {
-    const index = this.props.index
-    if (index == 0) {
-      console.log(this.props)
-    }
+    // const index = this.props.index
+    // if (index == 0) {
+    //   console.log(this.props)
+    // }
     const percent = this.props.data[this.props.index].percent
-    console.log(percent)
-    const numVotes = this.props.datum.y
-    console.log("num votes", numVotes)
+    // console.log(percent)
+    // const numVotes = this.props.datum.y
+    // console.log("num votes", numVotes)
     const plural = (this.props.text === '1') ? '' : 's';
     return (
       <g>
@@ -72,16 +72,17 @@ class PieGraph extends Component {
           labelRadius={110}
           labels={(d) => d.y}
           labelComponent={<CustomLabel />}
-          data={[
-            { label: 1, y: 10, percent: 35 },
-            { label: 2, y: 4, percent: 10 },
-            { label: 3, y: 2, percent: 20 },
-            { label: 4, y: 3, percent: 7 },
-            { label: 5, y: 1, percent: 19 },
-            { label: 6, y: 3, percent: 35 },
-            { label: 7, y: 4, percent: 35 },
-            { label: 8, y: 7, percent: 35 }
-          ]}
+          data={this.props.data}
+        // data={[
+        //   { label: 1, y: 10, percent: 35 },
+        //   { label: 2, y: 4, percent: 10 },
+        //   { label: 3, y: 2, percent: 20 },
+        //   { label: 4, y: 3, percent: 7 },
+        //   { label: 5, y: 1, percent: 19 },
+        //   { label: 6, y: 3, percent: 35 },
+        //   { label: 7, y: 4, percent: 35 },
+        //   { label: 8, y: 7, percent: 35 }
+        // ]}
         />
       </div>
     );

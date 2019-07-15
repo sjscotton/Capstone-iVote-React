@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Login from './Login'
 import Stats from './Stats'
 import Reps from './Reps'
-
+import axios from 'axios';
 import './AppRouter.css'
 
 const baseUrl = 'http://localhost:8000/ivote/'
@@ -19,16 +19,45 @@ class AppRouter extends Component {
       loggedIn: false,
       electionDates: [],
       maxElections: 0,
+      voterID: '',
+      city: '',
+      countyCode: '',
+      ageGroup: '',
+      stats: {}
     }
   }
 
-
-  login = (votingDates) => {
+  getStats() {
+    console.log(this.props)
+    const queryParams = {
+      params: {
+        city: this.state.city,
+        // county_code: this.state.countyCode,
+        // age_group: this.state.ageGroup
+      }
+    }
+    console.log(queryParams)
+    axios.get(baseUrl + 'stats', queryParams)
+      .then((response) => {
+        console.log(response.data.stats)
+        this.setState({ stats: response.data.stats })
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+  login = (voterInfo) => {
+    // console.log("inside login", voterInfo)
     const newState = {
       loggedIn: true,
-      votingHistory: votingDates
+      votingHistory: voterInfo.votingHistory,
+      voterID: voterInfo.voterID,
+      city: voterInfo.city,
+      countyCode: voterInfo.countyCode,
+      ageGroup: voterInfo.ageGroup
     }
     this.setState(newState)
+    this.getStats()
   }
   setLogout = () => {
     this.setState({ loggedIn: false })
@@ -37,7 +66,7 @@ class AppRouter extends Component {
     this.setState({ maxElections: maxElections })
   }
   render() {
-    console.log("AppRouter state", this.state)
+    // console.log("AppRouter state", this.state)
     return (
       <Router>
         <div className="App">
@@ -61,7 +90,7 @@ class AppRouter extends Component {
               // component={Search} 
               render={(props) =>
                 <Login
-                  setVotingHistoryCallback={this.setVotingHistory}
+                  // setVotingHistoryCallback={this.setVotingHistory}
                   loginCallback={this.login}
                   loggedIn={this.state.loggedIn}
                   setElectionDatesCallback={this.setElectionDates}
@@ -73,8 +102,10 @@ class AppRouter extends Component {
               render={(props) =>
                 <Stats
                   votingHistory={this.state.votingHistory}
-                  loggedIn={this.state.loggedIn}
-                  maxElections={this.state.maxElections}
+                  // loggedIn={this.state.loggedIn}
+                  // maxElections={this.state.maxElections}
+                  voterInfo={this.state}
+                  baseUrl={baseUrl}
                 />}
             />
             <Route

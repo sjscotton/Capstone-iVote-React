@@ -22,14 +22,14 @@ class LoginForm extends Component {
   onInputChange = (event) => {
 
     const updatedState = {};
-    console.log(event.target.name)
-    console.log(event.target.value)
+    // console.log(event.target.name)
+    // console.log(event.target.value)
     updatedState[event.target.name] = event.target.value;
     this.setState(updatedState);
   }
 
   onSubmit = (event) => {
-    console.log("in prevent default")
+
     event.preventDefault();
     this.props.getVoterCallback(this.state)
     this.setState({

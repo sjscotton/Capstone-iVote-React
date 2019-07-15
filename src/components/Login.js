@@ -21,7 +21,7 @@ class Login extends Component {
   componentDidMount() {
     axios.get(this.props.baseUrl + 'address')
       .then((response) => {
-        console.log(response.data.addresses)
+        // console.log(response.data.addresses)
         this.setState({ otherAddresses: response.data.addresses })
       })
       .catch((error) => {
@@ -38,18 +38,20 @@ class Login extends Component {
       last_name: userParams.lastName,
       birthdate: `${userParams.month}-${userParams.day}-${userParams.year}`
     }
-    console.log(queryParams, "inside getVoter")
+    // console.log(queryParams, "inside getVoter")
     axios.get(this.props.baseUrl + 'voter', { params: queryParams })
       .then((response) => {
         const data = response.data
-        const newState = {
+        const voterInfo = {
           firstName: data.first_name,
           lastName: data.last_name,
           voterID: data.voter_id,
-          address: data.address
+          city: data.city,
+          countyCode: data.county_code,
+          ageGroup: data.age_group
         }
-        this.setState(newState)
-        this.getVotingHistory(data.voter_id)
+        // this.setState(newState)
+        this.getVotingHistory(voterInfo)
         this.getElectionDates(data.county_code, data.city)
       })
       .catch((error) => {
@@ -58,14 +60,15 @@ class Login extends Component {
       })
   }
 
-  getVotingHistory(voterID) {
-    console.log("inside getVotingHistory")
-    axios.get(this.props.baseUrl + 'vote_dates', { params: { state_voter_id: voterID } })
+  getVotingHistory(voterInfo) {
+    // console.log("inside getVotingHistory")
+    axios.get(this.props.baseUrl + 'vote_dates', { params: { state_voter_id: voterInfo.voterID } })
       .then((response) => {
-        console.log(response.data.voting_days)
-        this.setState({ votingHistory: response.data.voting_days })
+        // console.log(response.data.voting_days)
+        // this.setState({ votingHistory: response.data.voting_days })
         // this.props.setVotingHistoryCallback(response.data.voting_days)
-        this.props.loginCallback(response.data.voting_days)
+        voterInfo.votingHistory = response.data.voting_days
+        this.props.loginCallback(voterInfo)
         this.props.history.push('/Stats')
       })
       .catch((error) => {
@@ -76,7 +79,7 @@ class Login extends Component {
   getElectionDates(countyCode, city) {
     axios.get(this.props.baseUrl + 'elections', { params: { county_code: countyCode, city: city } })
       .then((response) => {
-        console.log("inside getElectionDates", response.data)
+        // console.log("inside getElectionDates", response.data)
         this.props.setElectionDatesCallback(response.data.max_elections)
       })
       .catch((error) => {
@@ -87,7 +90,7 @@ class Login extends Component {
 
 
   render() {
-    console.log("Login state", this.state)
+    // console.log("Login state", this.state)
     return (
       <div>
         <h2 className='page-title'></h2>
