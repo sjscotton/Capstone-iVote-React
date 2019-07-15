@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { VictoryPie, VictoryLabel, VictoryTooltip } from 'victory';
 
+import './Graph.css'
 
 class CustomLabel extends Component {
 

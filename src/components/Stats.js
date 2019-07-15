@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import BarChart from './BarChart'
+import BarGraph from './BarGraph'
 import PieGraph from './PieGraph'
 import './Stats.css'
 
@@ -46,9 +46,12 @@ class Stats extends Component {
     }
   }
   render() {
-    if (!this.props.loggedIn) {
-      this.props.history.push('/Login')
-    }
+    // uncomment this to redirect if user not logged in
+    // if (!this.props.loggedIn) {
+    //   this.props.history.push('/Login')
+    // }
+
+
     const ageGroup = this.props.voterInfo.ageGroup;
     // const stats = this.props.voterInfo.stats[ageGroup]
 
@@ -64,7 +67,7 @@ class Stats extends Component {
           {this.generateVotingBoxes(this.props.votingHistory)}
         </div>
         <div className="graph-container">
-          <BarChart />
+          <BarGraph data={this.props.voterInfo.stats} maxVotes={this.props.voterInfo.maxElections} loggedIn={this.props.loggedIn} />
           <PieGraph data={data} />
         </div>
       </div>
