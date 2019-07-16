@@ -19,13 +19,13 @@ class BarGraph extends Component {
       for (const ageGroup of AgeGroups) {
         console.log("ageGroup", ageGroup)
         const ageGroupData = { ageGroup: ageGroup, data: [] }
-        for (let i = 0; i <= this.props.maxVotes; i += 1) {
+        for (let i = 0; i < data['18-24'].length; i += 1) {
           ageGroupData.data.push({ timesVoted: i, voters: data[ageGroup][i] })
         }
         formatedData.push(ageGroupData)
       }
     }
-    console.log(formatedData)
+    console.log("formated data", formatedData)
     return formatedData
   }
 

@@ -40,7 +40,7 @@ class AppRouter extends Component {
     axios.get(baseUrl + 'stats', queryParams)
       .then((response) => {
         console.log(response.data.stats)
-        this.setState({ stats: response.data.stats })
+        this.setState({ stats: response.data.stats, maxElections: (response.data.stats["18-24"].length - 1) })
       })
       .catch((error) => {
         console.log(error)
@@ -63,7 +63,7 @@ class AppRouter extends Component {
     this.setState({ loggedIn: false })
   }
   setElectionDates = (maxElections) => {
-    this.setState({ maxElections: maxElections })
+    // this.setState({ maxElections: maxElections })
   }
   render() {
     // console.log("AppRouter state", this.state)
