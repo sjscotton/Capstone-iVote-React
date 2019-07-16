@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+import './Reps.css'
+
 class Reps extends Component {
   // constructor(props) {
   //   super(props);
@@ -29,7 +37,23 @@ class Reps extends Component {
         <h2>My Representatives</h2>
         <p>{this.props.address}</p>
         <div>{reps}</div>
-
+        <div className="panel-container">
+          <ExpansionPanel>
+            <ExpansionPanelSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography >Expansion Panel 1</Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+              <Typography>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+                sit amet blandit leo lobortis eget.
+          </Typography>
+            </ExpansionPanelDetails>
+          </ExpansionPanel>
+        </div>
 
       </div>
     )
