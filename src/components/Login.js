@@ -47,6 +47,7 @@ class Login extends Component {
           lastName: data.last_name,
           voterID: data.voter_id,
           city: data.city,
+          address: data.address,
           countyCode: data.county_code,
           ageGroup: data.age_group
         }

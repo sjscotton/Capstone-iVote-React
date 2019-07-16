@@ -23,6 +23,7 @@ class AppRouter extends Component {
       city: '',
       countyCode: '',
       ageGroup: '',
+      address: '',
       stats: {}
     }
   }
@@ -54,10 +55,12 @@ class AppRouter extends Component {
       voterID: voterInfo.voterID,
       city: voterInfo.city,
       countyCode: voterInfo.countyCode,
-      ageGroup: voterInfo.ageGroup
+      ageGroup: voterInfo.ageGroup,
+      address: voterInfo.address,
     }
     this.setState(newState)
     this.getStats()
+
   }
   setLogout = () => {
     this.setState({ loggedIn: false })
@@ -112,6 +115,8 @@ class AppRouter extends Component {
               path="/reps/"
               render={(props) =>
                 <Reps
+                  address={this.state.address}
+                  baseUrl={baseUrl}
                 />}
             />
           </main>
