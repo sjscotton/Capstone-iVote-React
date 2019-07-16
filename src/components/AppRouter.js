@@ -24,12 +24,13 @@ class AppRouter extends Component {
       countyCode: '',
       ageGroup: '',
       address: '',
+      repsData: [],
       stats: {}
     }
   }
 
   getStats() {
-    console.log(this.props)
+    // console.log(this.props)
     const queryParams = {
       params: {
         city: this.state.city,
@@ -37,11 +38,24 @@ class AppRouter extends Component {
         // age_group: this.state.ageGroup
       }
     }
-    console.log(queryParams)
+    // console.log(queryParams)
     axios.get(baseUrl + 'stats', queryParams)
       .then((response) => {
-        console.log(response.data.stats)
+        // console.log(response.data.stats)
         this.setState({ stats: response.data.stats, maxElections: (response.data.stats["18-24"].length - 1) })
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
+  getReps() {
+    console.log("inside getReps", this.state.address)
+    const queryParams = { params: { address: this.state.address } }
+    axios.get(baseUrl + 'reps', queryParams)
+      .then((response) => {
+        console.log(response.data)
+        this.setState({ repsData: response.data.reps })
       })
       .catch((error) => {
         console.log(error)
@@ -60,6 +74,7 @@ class AppRouter extends Component {
     }
     this.setState(newState)
     this.getStats()
+    this.getReps()
 
   }
   setLogout = () => {
@@ -108,7 +123,7 @@ class AppRouter extends Component {
                   loggedIn={this.state.loggedIn}
                   // maxElections={this.state.maxElections}
                   voterInfo={this.state}
-                  baseUrl={baseUrl}
+                // baseUrl={baseUrl}
                 />}
             />
             <Route
@@ -116,7 +131,8 @@ class AppRouter extends Component {
               render={(props) =>
                 <Reps
                   address={this.state.address}
-                  baseUrl={baseUrl}
+                  repsData={this.state.repsData}
+
                 />}
             />
           </main>

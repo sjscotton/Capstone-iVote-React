@@ -11,13 +11,13 @@ class BarGraph extends Component {
 
   formatData() {
     const data = this.props.data;
-    console.log("in Bar Graph", data)
+    // console.log("in Bar Graph", data)
     let formatedData = [];
-    console.log("logged In", this.props.loggedIn)
+    // console.log("logged In", this.props.loggedIn)
     if (data['18-24']) {
 
       for (const ageGroup of AgeGroups) {
-        console.log("ageGroup", ageGroup)
+        // console.log("ageGroup", ageGroup)
         const ageGroupData = { ageGroup: ageGroup, data: [] }
         for (let i = 0; i < data['18-24'].length; i += 1) {
           ageGroupData.data.push({ timesVoted: i, voters: data[ageGroup][i] })
@@ -25,13 +25,13 @@ class BarGraph extends Component {
         formatedData.push(ageGroupData)
       }
     }
-    console.log("formated data", formatedData)
+    // console.log("formated data", formatedData)
     return formatedData
   }
 
   generateVictoryBars(voterData) {
     return voterData.map((stack, i) => {
-      console.log("stack", stack)
+      // console.log("stack", stack)
       return (
         <VictoryBar
           alignment="start"
@@ -47,32 +47,33 @@ class BarGraph extends Component {
   }
   render() {
     const data = this.generateVictoryBars(this.formatData())
-    console.log("victory bar data", data)
+    // console.log("victory bar data", data)
 
     return (
 
-      <div>
-        <h4>Graph Title</h4>
-        <div className='graph'>
-          <VictoryChart
-            domainPadding={0}
 
-            theme={VictoryTheme.material}
-          >
-            <VictoryAxis
-              tickValues={[0, 1, 2, 3, 4, 5]}
-              tickFormat={["0", "1", "2", "3", "4", "5"]}
-            />
-            <VictoryAxis
-              dependentAxis
-              label={'Percent of Voters'}
-              tickFormat={(x) => (``)}
-            // tickFormat={(x) => (`$${x / 1000}k`)}
-            />
-            <VictoryStack
-              colorScale={"cool"}
-            >{data}
-              {/* <VictoryBar
+
+      <div className='graph'>
+        <h4>Graph Title</h4>
+        <VictoryChart
+          domainPadding={0}
+
+          theme={VictoryTheme.material}
+        >
+          <VictoryAxis
+            tickValues={[0, 1, 2, 3, 4, 5]}
+            tickFormat={["0", "1", "2", "3", "4", "5"]}
+          />
+          <VictoryAxis
+            dependentAxis
+            label={'Percent of Voters'}
+            tickFormat={(x) => (``)}
+          // tickFormat={(x) => (`$${x / 1000}k`)}
+          />
+          <VictoryStack
+            colorScale={"cool"}
+          >{data}
+            {/* <VictoryBar
                 barRatio={1.2}
                 data={data2012}
                 x="quarter"
@@ -96,11 +97,11 @@ class BarGraph extends Component {
                 x="quarter"
                 y="earnings"
               /> */}
-            </VictoryStack>
-          </VictoryChart>
-        </div>
-
+          </VictoryStack>
+        </VictoryChart>
       </div>
+
+
     )
   }
 }

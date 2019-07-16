@@ -1,5 +1,7 @@
 .graph {
   width: 20rem;
+  background-color: rgb(229, 238, 245);
+  margin: 1rem;
 }
 
 .title {
