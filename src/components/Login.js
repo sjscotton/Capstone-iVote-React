@@ -52,7 +52,7 @@ class Login extends Component {
         }
         // this.setState(newState)
         this.getVotingHistory(voterInfo)
-        this.getElectionDates(data.county_code, data.city)
+        // this.getElectionDates(data.county_code, data.city)
       })
       .catch((error) => {
         console.log(error.message)
@@ -76,16 +76,16 @@ class Login extends Component {
       })
   }
 
-  getElectionDates(countyCode, city) {
-    axios.get(this.props.baseUrl + 'elections', { params: { county_code: countyCode, city: city } })
-      .then((response) => {
-        // console.log("inside getElectionDates", response.data)
-        this.props.setElectionDatesCallback(response.data.max_elections)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }
+  // getElectionDates(countyCode, city) {
+  //   axios.get(this.props.baseUrl + 'elections', { params: { county_code: countyCode, city: city } })
+  //     .then((response) => {
+  //       // console.log("inside getElectionDates", response.data)
+  //       this.props.setElectionDatesCallback(response.data.max_elections)
+  //     })
+  //     .catch((error) => {
+  //       console.log(error)
+  //     })
+  // }
 
 
 
