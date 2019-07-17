@@ -25,6 +25,7 @@ class AppRouter extends Component {
       ageGroup: '',
       address: '',
       repsData: [],
+      formattedRepData: null,
       stats: {}
     }
   }
@@ -56,10 +57,39 @@ class AppRouter extends Component {
       .then((response) => {
         console.log(response.data)
         this.setState({ repsData: response.data.reps })
+        this.formatRepsData(response.data.reps)
       })
       .catch((error) => {
         console.log(error)
       })
+  }
+  formatRepsData(repsData) {
+    // if (!this.props.repsData.officials || this.state.formatedRepData) {
+    //   console.log("inside formatedRepsData conditional")
+    //   console.log(this.state.formatedRepData)
+    //   return;
+    // }
+    // const regions = ['country', 'state', 'county', 'place']
+    const formattedData = { country: [], state: [], county: [], place: [] };
+    const officials = repsData.officials;
+    const offices = repsData.offices;
+    console.log("offices", offices)
+    for (const office of offices) {
+      const divisionIDs = office.divisionId.split('/')
+      let region = (divisionIDs[divisionIDs.length - 1].split(':')[0])
+      // if (!regions.includes(region)) {
+      if (!formattedData[region]) {
+        region = (divisionIDs[divisionIDs.length - 2].split(':')[0])
+      }
+      console.log(region)
+      for (const officeIndex of office.officialIndices) {
+        officials[officeIndex].title = office.name
+        formattedData[region].push(officials[officeIndex])
+      }
+    }
+    console.log(formattedData)
+    this.setState({ formattedRepData: formattedData })
+
   }
   login = (voterInfo) => {
     // console.log("inside login", voterInfo)
@@ -131,7 +161,7 @@ class AppRouter extends Component {
               render={(props) =>
                 <Reps
                   address={this.state.address}
-                  repsData={this.state.repsData}
+                  formattedRepData={this.state.formattedRepData}
 
                 />}
             />
