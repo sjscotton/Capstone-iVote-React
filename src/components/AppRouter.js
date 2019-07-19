@@ -64,18 +64,14 @@ class AppRouter extends Component {
       })
   }
   formatRepsData(repsData) {
-    // if (!this.props.repsData.officials || this.state.formatedRepData) {
-    //   console.log("inside formatedRepsData conditional")
-    //   console.log(this.state.formatedRepData)
-    //   return;
-    // }
-    // const regions = ['country', 'state', 'county', 'place']
+
     const formattedData = { country: [], state: [], county: [], place: [] };
     const officials = repsData.officials;
     const offices = repsData.offices;
     console.log("offices", offices)
     for (const office of offices) {
       const divisionIDs = office.divisionId.split('/')
+
       let region = (divisionIDs[divisionIDs.length - 1].split(':')[0])
       // if (!regions.includes(region)) {
       if (!formattedData[region]) {

@@ -21,7 +21,7 @@ class Reps extends Component {
     const officials = (this.props.formattedRepData) ? this.props.formattedRepData[region] : [];
     return officials.map((rep, i) => {
       if (nonElectedPositions.includes(rep.title)) {
-        return (<div></div>)
+        return (<div key={i}></div>)
       } else {
         return (
           <ExpansionPanel key={i}>
@@ -62,9 +62,9 @@ class Reps extends Component {
           <div>{this.generateReps('place')}</div>
           <h3>County</h3>
           <div>{this.generateReps('county')}</div>
-          <h3>State</h3>
+          <h3>Washington State</h3>
           <div>{this.generateReps('state')}</div>
-          <h3>Federal</h3>
+          <h3>United States</h3>
           <div>{this.generateReps('country')}</div>
 
 
