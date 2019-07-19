@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack } from 'victory';
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack, VictoryLabel, VictoryTooltip } from 'victory';
+import PropTypes from 'prop-types';
 
 import './Graph.css'
 
@@ -32,12 +33,16 @@ class BarGraph extends Component {
   generateVictoryBars(voterData) {
     return voterData.map((stack, i) => {
       // console.log("stack", stack)
+      // console.log(stack.index)
       return (
         <VictoryBar
+          // style={{ labels: { fontSize: 40 } }}
+          labels={(d) => d.y}
+          labelComponent={<CustomLabel />}
           alignment="start"
           key={i}
           barRatio={1}
-          lable={stack.ageGroup}
+          label={stack.ageGroup}
           data={stack.data}
           x="timesVoted"
           y="voters"
@@ -48,7 +53,7 @@ class BarGraph extends Component {
   render() {
     const data = this.generateVictoryBars(this.formatData())
     // console.log("victory bar data", data)
-
+    console.log(this.props)
     return (
 
 
@@ -59,11 +64,12 @@ class BarGraph extends Component {
           domainPadding={0}
 
           theme={VictoryTheme.material}
+
         >
           <VictoryAxis
             tickValues={[0, 1, 2, 3, 4, 5]}
             tickFormat={["0", "1", "2", "3", "4", "5"]}
-            label='Times Voted in the last 5 elections'
+            label={`Times Voted in the last ${this.props.maxElections} elections`}
             style={{
               axis: { stroke: "#756f6a" },
               axisLabel: { fontSize: 20, padding: 30 },
@@ -76,6 +82,7 @@ class BarGraph extends Component {
             style={{
               axis: { stroke: "#756f6a" },
               axisLabel: { fontSize: 20, padding: 30 },
+              labels: { fontSize: 20 }
             }}
             tickFormat={(x) => (``)}
 
@@ -92,5 +99,36 @@ class BarGraph extends Component {
     )
   }
 }
+
+class CustomLabel extends Component {
+
+  render() {
+    // console.log(this.props)
+    // console.log(this.props.index)
+    const text = AgeGroups[this.props.datum._stack - 1]
+    // console.log("text", text)
+    return (
+      <g>
+        <VictoryLabel {...this.props}
+        />
+        <VictoryTooltip
+          {...this.props}
+          x={300} y={100}
+          text={`Ages ${text}`}
+          orientation="top"
+          pointerLength={0}
+          cornerRadius={10}
+          width={100}
+          height={50}
+          flyoutStyle={{ fill: "white", fontSize: 30, labels: { fontSize: 30 } }}
+          style={{ labels: { fontSize: 30 } }}
+        />
+      </g>
+    );
+  }
+}
+CustomLabel.defaultEvents = VictoryTooltip.defaultEvents;
+CustomLabel.propTypes = { text: PropTypes.string };
+
 
 export default BarGraph;

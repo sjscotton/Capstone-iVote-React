@@ -47,9 +47,9 @@ class Stats extends Component {
   }
   render() {
     // uncomment this to redirect if user not logged in
-    if (!this.props.loggedIn) {
-      this.props.history.push('/Login')
-    }
+    // if (!this.props.loggedIn) {
+    //   this.props.history.push('/Login')
+    // }
 
 
     const ageGroup = this.props.voterInfo.ageGroup;
@@ -67,7 +67,7 @@ class Stats extends Component {
           {this.generateVotingBoxes(this.props.votingHistory)}
         </div>
         <div className="graph-container">
-          <BarGraph data={this.props.voterInfo.stats} maxVotes={this.props.voterInfo.maxElections} loggedIn={this.props.loggedIn} />
+          <BarGraph data={this.props.voterInfo.stats} maxVotes={this.props.voterInfo.maxElections} loggedIn={this.props.loggedIn} maxElections={this.props.maxElections} />
           <PieGraph data={data} />
         </div>
       </div>

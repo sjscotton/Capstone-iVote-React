@@ -147,7 +147,7 @@ class AppRouter extends Component {
                 <Stats
                   votingHistory={this.state.votingHistory}
                   loggedIn={this.state.loggedIn}
-                  // maxElections={this.state.maxElections}
+                  maxElections={this.state.maxElections}
                   voterInfo={this.state}
                 // baseUrl={baseUrl}
                 />}
