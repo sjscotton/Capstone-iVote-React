@@ -63,10 +63,20 @@ class BarGraph extends Component {
           <VictoryAxis
             tickValues={[0, 1, 2, 3, 4, 5]}
             tickFormat={["0", "1", "2", "3", "4", "5"]}
+            label='Times Voted in the last 5 elections'
+            style={{
+              axis: { stroke: "#756f6a" },
+              axisLabel: { fontSize: 20, padding: 30 },
+            }}
+
           />
           <VictoryAxis
             dependentAxis
             label={'Percent of Voters'}
+            style={{
+              axis: { stroke: "#756f6a" },
+              axisLabel: { fontSize: 20, padding: 30 },
+            }}
             tickFormat={(x) => (``)}
           // tickFormat={(x) => (`$${x / 1000}k`)}
           />

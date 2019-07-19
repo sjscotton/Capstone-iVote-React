@@ -20,9 +20,9 @@ class Stats extends Component {
     // console.log("max elections", this.props.voterInfo.maxElections)
     return Array(this.props.voterInfo.maxElections).fill().map((none, i) => {
 
-      const style = votingDates.length > i ? "election-date voted" : "election-date missed";
+      const style = votingDates.length > i ? "vote" : "no-vote";
       return (
-        <div className={style} key={i}></div>
+        <div className={`${style} sticker`} key={i}></div>
       )
     })
   }
@@ -47,9 +47,9 @@ class Stats extends Component {
   }
   render() {
     // uncomment this to redirect if user not logged in
-    // if (!this.props.loggedIn) {
-    //   this.props.history.push('/Login')
-    // }
+    if (!this.props.loggedIn) {
+      this.props.history.push('/Login')
+    }
 
 
     const ageGroup = this.props.voterInfo.ageGroup;
@@ -62,7 +62,7 @@ class Stats extends Component {
       <div>
         <h2>Stats</h2>
         <h4>{voteRecord}</h4>
-        <div className="flex-container">
+        <div className="stickers-container">
 
           {this.generateVotingBoxes(this.props.votingHistory)}
         </div>

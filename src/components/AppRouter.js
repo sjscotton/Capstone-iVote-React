@@ -7,7 +7,7 @@ import Reps from './Reps'
 import axios from 'axios';
 import './AppRouter.css'
 
-const baseUrl = 'http://localhost:8000/ivote/'
+const baseUrl = 'http://localhost:7000/ivote/'
 
 class AppRouter extends Component {
 
@@ -24,7 +24,7 @@ class AppRouter extends Component {
       countyCode: '',
       ageGroup: '',
       address: '',
-      repsData: [],
+      // repsData: [],
       formattedRepData: null,
       stats: {}
     }
@@ -56,7 +56,7 @@ class AppRouter extends Component {
     axios.get(baseUrl + 'reps', queryParams)
       .then((response) => {
         console.log(response.data)
-        this.setState({ repsData: response.data.reps })
+        // this.setState({ repsData: response.data.reps })
         this.formatRepsData(response.data.reps)
       })
       .catch((error) => {
@@ -162,6 +162,7 @@ class AppRouter extends Component {
                 <Reps
                   address={this.state.address}
                   formattedRepData={this.state.formattedRepData}
+                  loggedIn={this.state.loggedIn}
 
                 />}
             />

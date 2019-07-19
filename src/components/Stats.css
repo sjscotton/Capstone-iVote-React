@@ -1,25 +1,28 @@
-.election-date {
-  width: 3rem;
-  height: 3rem;
+/* 
+.sticker {
+  width: 5rem;
+  height: 5rem;
   margin: 1rem;
+  border-radius: 25%;
+}
+.vote {
+  background-color: rgb(37, 92, 150);
 }
 
-.voted {
-  background-color: green;
+.no-vote {
+  background-color: rgb(190, 47, 47);
+} */
+.stickers-container {
+  margin-bottom: 2rem;
 }
-
-.missed {
-  background-color: red;
-}
-
-.flex-container, .graph-container {
+.stickers-container, .graph-container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   width: 100vw;
   
-}
+} 
 
 
 /* Graph Styles */
@@ -29,3 +32,84 @@
   max-width: 22rem;
 
 }
+
+
+
+
+/* IGNORE CSS ABOVE */
+
+@keyframes BounceIn { 
+  0% {
+    opacity: 0;
+    transform: scale(.1) translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
+}
+
+@keyframes BounceInNoVote { 
+  0% {
+    opacity: 0;
+    transform: scale(.1) translateY(40px);
+  }
+
+  100% {
+    opacity: 0.6;
+    transform: scale(0.9) translateY(0px);
+  }
+}
+
+/* .stickers-container {
+  display: flex;
+  flex-direction: row;
+} */
+
+.sticker {
+  height: 80px;
+  width: 80px;
+  margin: 0 6px;
+  opacity: 0;
+  transform: scale(0.1) translateY(40px);
+  animation-duration: 600ms;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  animation-fill-mode: forwards;
+  background-size: contain;
+}
+
+.sticker.vote {
+  animation-name: BounceIn;
+  background-image: url("https://i.imgur.com/EYwhsdg.png")
+}
+
+.sticker.no-vote {
+  animation-name: BounceInNoVote;
+  background-image: url("https://i.imgur.com/GERvwBT.png")
+}
+
+/* .sticker:nth-child(1) { animation-delay: 500ms; }
+.sticker:nth-child(2) { animation-delay: 1000ms; }
+.sticker:nth-child(3) { animation-delay: 1500ms; }
+.sticker:nth-child(4) { animation-delay: 2000ms; }
+.sticker:nth-child(5) { animation-delay: 2500ms; }
+.sticker:nth-child(6) { animation-delay: 3000ms; }
+.sticker:nth-child(7) { animation-delay: 3500ms; } */
+
+
+/* .sticker:nth-child(1) { animation-delay: 400ms; }
+.sticker:nth-child(2) { animation-delay: 800ms; }
+.sticker:nth-child(3) { animation-delay: 1200ms; }
+.sticker:nth-child(4) { animation-delay: 1600ms; }
+.sticker:nth-child(5) { animation-delay: 2000ms; }
+.sticker:nth-child(6) { animation-delay: 2400ms; }
+.sticker:nth-child(7) { animation-delay: 2800ms; } */
+
+.sticker:nth-child(1) { animation-delay: 300ms; }
+.sticker:nth-child(2) { animation-delay: 600ms; }
+.sticker:nth-child(3) { animation-delay: 900ms; }
+.sticker:nth-child(4) { animation-delay: 1200ms; }
+.sticker:nth-child(5) { animation-delay: 1500ms; }
+.sticker:nth-child(6) { animation-delay: 1800ms; }
+.sticker:nth-child(7) { animation-delay: 2100ms; }
