@@ -11,6 +11,8 @@ import './Reps.css'
 // import { responsiveFontSizes } from '@material-ui/core/styles';
 // import { nullLiteral } from '@babel/types';
 
+const nonElectedPositions = ["Elections Director", "Assessor", "WA Supreme Court Justice", "State Auditor", "Commissioner of Public Lands", "Secretary of State", "State Treasurer", "Insurance Commissioner", "State Superintendent of Public Instruction"]
+
 class Reps extends Component {
 
 
@@ -18,24 +20,29 @@ class Reps extends Component {
     console.log("inside generateReps", this.props.formattedRepData)
     const officials = (this.props.formattedRepData) ? this.props.formattedRepData[region] : [];
     return officials.map((rep, i) => {
-      return (
-        <ExpansionPanel key={i}>
-          <ExpansionPanelSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            {rep.name}
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <div>
-              {rep.title}
-              <img src={rep.photoUrl} alt="official" />
-            </div>
+      if (nonElectedPositions.includes(rep.title)) {
+        return (<div></div>)
+      } else {
+        return (
+          <ExpansionPanel key={i}>
+            <ExpansionPanelSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              {rep.name}
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+              <div className="rep-info">
+                <div>{rep.title}</div>
 
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-      )
+                {/* <img src={rep.photoUrl} alt="official" /> */}
+              </div>
+
+            </ExpansionPanelDetails>
+          </ExpansionPanel>
+        )
+      }
     })
   }
 

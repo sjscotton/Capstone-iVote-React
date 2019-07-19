@@ -78,35 +78,12 @@ class BarGraph extends Component {
               axisLabel: { fontSize: 20, padding: 30 },
             }}
             tickFormat={(x) => (``)}
-          // tickFormat={(x) => (`$${x / 1000}k`)}
+
           />
           <VictoryStack
             colorScale={"cool"}
           >{data}
-            {/* <VictoryBar
-                barRatio={1.2}
-                data={data2012}
-                x="quarter"
-                y="earnings"
-              />
-              <VictoryBar
-                barRatio={1.2}
-                data={data2013}
-                x="quarter"
-                y="earnings"
-              />
-              <VictoryBar
-                barRatio={1.2}
-                data={data2014}
-                x="quarter"
-                y="earnings"
-              />
-              <VictoryBar
-                barRatio={1.2}
-                data={data2015}
-                x="quarter"
-                y="earnings"
-              /> */}
+
           </VictoryStack>
         </VictoryChart>
       </div>
