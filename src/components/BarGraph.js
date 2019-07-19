@@ -54,7 +54,7 @@ class BarGraph extends Component {
 
 
       <div className='graph'>
-        <h4>Graph Title</h4>
+        <h3>Number of times people voted in your city by age group</h3>
         <VictoryChart
           domainPadding={0}
 

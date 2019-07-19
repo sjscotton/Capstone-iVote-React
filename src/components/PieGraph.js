@@ -35,7 +35,7 @@ class PieGraph extends Component {
   render() {
     return (
       <div className="graph">
-        <h4>Graph Title</h4>
+        <h3>Number of times people your age voted in your City</h3>
         <VictoryPie
           colorScale={['#00125c', '#570d68', '#910468', '#c21c60', '#e64450', '#fe723c', '#ffa227', '#ffd321']}
           style={{ labels: { fill: "white", fontSize: 24 } }}
