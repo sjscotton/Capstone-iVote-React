@@ -60,17 +60,20 @@ class Stats extends Component {
     const voteRecord = `You voted in ${this.props.votingHistory.length} of the last ${this.props.voterInfo.maxElections} elections.`
     return (
       <div>
+
         <h2>Stats</h2>
         <h4>{voteRecord}</h4>
-        <div className="stickers-container">
+        <div className="headers-container">
+          <div className="stickers-container">
 
-          {this.generateVotingBoxes(this.props.votingHistory)}
+            {this.generateVotingBoxes(this.props.votingHistory)}
+          </div>
         </div>
         <div className="graph-container">
           <BarGraph data={this.props.voterInfo.stats} maxVotes={this.props.voterInfo.maxElections} loggedIn={this.props.loggedIn} maxElections={this.props.maxElections} />
           <PieGraph data={data} />
         </div>
-      </div>
+      </div >
     )
   }
 }
