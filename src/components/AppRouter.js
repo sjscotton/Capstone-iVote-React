@@ -30,6 +30,7 @@ class AppRouter extends Component {
     }
   }
 
+
   getStats() {
     // console.log(this.props)
     const queryParams = {
@@ -101,7 +102,7 @@ class AppRouter extends Component {
     this.setState(newState)
     this.getStats()
     this.getReps()
-
+    localStorage.setItem('voterID', voterInfo.voterID)
   }
   setLogout = () => {
     this.setState({ loggedIn: false })

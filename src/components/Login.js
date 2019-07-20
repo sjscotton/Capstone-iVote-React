@@ -14,21 +14,29 @@ class Login extends Component {
       lastName: '',
       voterID: '',
       address: '',
-      otherAddresses: []
+      // otherAddresses: []
 
     }
   }
 
-  componentDidMount() {
-    axios.get(this.props.baseUrl + 'address')
-      .then((response) => {
-        // console.log(response.data.addresses)
-        this.setState({ otherAddresses: response.data.addresses })
-      })
-      .catch((error) => {
-        console.log(error.message)
-      })
+  // componentDidMount() {
+  //   // axios.get(this.props.baseUrl + 'address')
+  //   //   .then((response) => {
+  //   //     // console.log(response.data.addresses)
+  //   //     this.setState({ otherAddresses: response.data.addresses })
+  //   //   })
+  //   //   .catch((error) => {
+  //   //     console.log(error.message)
+  //   //   })
 
+  // }
+  componentDidMount() {
+    console.log("inside Login ComponentDidMount")
+    const voterID = localStorage.getItem('voterID')
+    if (voterID && !this.props.loggedIn) {
+      console.log('calling getVOter')
+      this.getVoter({ voter_id: voterID })
+    }
   }
 
 

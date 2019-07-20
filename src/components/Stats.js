@@ -45,6 +45,8 @@ class Stats extends Component {
       })
     }
   }
+
+
   render() {
     // uncomment this to redirect if user not logged in
     // if (!this.props.loggedIn) {

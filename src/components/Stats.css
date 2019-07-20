@@ -83,7 +83,7 @@
 .sticker {
   height: calc(3vw + 70px);
   width: calc(3vw + 70px);
-  margin: 0 6px;
+  margin: 2px 6px;
   border-radius: 100%;
   opacity: 0;
   transform: scale(0.1) translateY(40px);
