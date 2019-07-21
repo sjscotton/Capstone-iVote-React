@@ -25,20 +25,14 @@ class LoginForm extends Component {
   onInputChange = (event) => {
 
     const updatedState = {};
-    console.log(event.target.name)
-    console.log(event.target.value)
     updatedState[event.target.name] = event.target.value;
     this.setState(updatedState);
   }
   toggleCheckbox = (event) => {
-
-    console.log(this.state.rememberMe)
-
     this.setState({ rememberMe: !this.state.rememberMe });
   }
 
   onSubmit = (event) => {
-    console.log("inside OnSubmit")
     event.preventDefault();
     if (!this.state.rememberMe) {
       localStorage.clear();
@@ -66,12 +60,6 @@ class LoginForm extends Component {
               value={this.state.firstName}
               onChange={this.onInputChange}
             >
-              {/* <input
-              name="firstName"
-              type="text"
-              value={this.state.firstName}
-              onChange={this.onInputChange}
-            /> */}
             </TextField></div>
           <div className='form-field'>
             <TextField
@@ -82,12 +70,6 @@ class LoginForm extends Component {
               type="text"
               value={this.state.lastName}
               onChange={this.onInputChange}>
-              {/* <input
-              name="lastName"
-              type="text"
-              value={this.state.lastName}
-              onChange={this.onInputChange}
-            /> */}
             </TextField>
           </div>
           <h3>Birthday</h3>
@@ -100,13 +82,7 @@ class LoginForm extends Component {
               type="text"
               value={this.state.month}
               onChange={this.onInputChange}>
-              <input
-              // name="month"
-              // type="text"
-              // value={this.state.month}
-              // onChange={this.onInputChange}
 
-              />
             </TextField>
           </div>
           <div className='form-field'>
@@ -118,14 +94,6 @@ class LoginForm extends Component {
               type="text"
               value={this.state.day}
               onChange={this.onInputChange}>
-
-              {/* <input
-              name="day"
-              type="text"
-              value={this.state.day}
-              onChange={this.onInputChange}
-              placeholder="20"
-            /> */}
             </TextField>
           </div>
           <div className='form-field'>
@@ -137,13 +105,6 @@ class LoginForm extends Component {
               type="text"
               value={this.state.year}
               onChange={this.onInputChange}>
-              {/* <input
-              name="year"
-              type="text"
-              value={this.state.year}
-              onChange={this.onInputChange}
-              placeholder="1984"
-            /> */}
             </TextField>
           </div>
           <div>

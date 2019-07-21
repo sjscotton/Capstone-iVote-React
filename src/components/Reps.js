@@ -8,8 +8,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import './Reps.css'
-// import { responsiveFontSizes } from '@material-ui/core/styles';
-// import { nullLiteral } from '@babel/types';
+
 
 const nonElectedPositions = ["Elections Director", "Assessor", "WA Supreme Court Justice", "State Auditor", "Commissioner of Public Lands", "Secretary of State", "State Treasurer", "Insurance Commissioner", "State Superintendent of Public Instruction"]
 

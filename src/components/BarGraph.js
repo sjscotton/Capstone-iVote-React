@@ -14,11 +14,9 @@ class BarGraph extends Component {
     const data = this.props.data;
     console.log("in Bar Graph format data")
     let formatedData = [];
-    // console.log("logged In", this.props.loggedIn)
     if (data['18-24']) {
 
       for (const ageGroup of AgeGroups) {
-        // console.log("ageGroup", ageGroup)
         const ageGroupData = { ageGroup: ageGroup, data: [] }
         for (let i = 0; i < data['18-24'].length; i += 1) {
           ageGroupData.data.push({ timesVoted: i, voters: data[ageGroup][i] })
@@ -26,17 +24,13 @@ class BarGraph extends Component {
         formatedData.push(ageGroupData)
       }
     }
-    // console.log("formated data", formatedData)
     return formatedData
   }
 
   generateVictoryBars(voterData) {
     return voterData.map((stack, i) => {
-      // console.log("stack", stack)
-      // console.log(stack.index)
       return (
         <VictoryBar
-          // style={{ labels: { fontSize: 40 } }}
           labels={(d) => d.y}
           labelComponent={<CustomLabel />}
           alignment="start"
@@ -52,7 +46,6 @@ class BarGraph extends Component {
   }
   render() {
     const data = this.generateVictoryBars(this.formatData())
-    // console.log("victory bar data", data)
     console.log(this.props)
     return (
 
@@ -103,10 +96,7 @@ class BarGraph extends Component {
 class CustomLabel extends Component {
 
   render() {
-    // console.log(this.props)
-    // console.log(this.props.index)
     const text = AgeGroups[this.props.datum._stack - 1]
-    // console.log("text", text)
     return (
       <g>
         <VictoryLabel {...this.props}

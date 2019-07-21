@@ -14,22 +14,10 @@ class Login extends Component {
       lastName: '',
       voterID: '',
       address: '',
-      // otherAddresses: []
 
     }
   }
 
-  // componentDidMount() {
-  //   // axios.get(this.props.baseUrl + 'address')
-  //   //   .then((response) => {
-  //   //     // console.log(response.data.addresses)
-  //   //     this.setState({ otherAddresses: response.data.addresses })
-  //   //   })
-  //   //   .catch((error) => {
-  //   //     console.log(error.message)
-  //   //   })
-
-  // }
   componentDidMount() {
 
     console.log("inside Login ComponentDidMount")
@@ -65,10 +53,8 @@ class Login extends Component {
           ageGroup: data.age_group,
           rememberMe: userParams.rememberMe,
         }
-        // this.setState(newState)
 
         this.getVotingHistory(voterInfo)
-        // this.getElectionDates(data.county_code, data.city)
       })
       .catch((error) => {
         console.log(error.message)
@@ -80,9 +66,7 @@ class Login extends Component {
     console.log("inside getVotingHistory")
     axios.get(this.props.baseUrl + 'vote_dates', { params: { state_voter_id: voterInfo.voterID } })
       .then((response) => {
-        // console.log(response.data.voting_days)
-        // this.setState({ votingHistory: response.data.voting_days })
-        // this.props.setVotingHistoryCallback(response.data.voting_days)
+
         voterInfo.votingHistory = response.data.voting_days
         console.log("+++++++++++++++++++++++++++++++")
         console.log("voterInfo", voterInfo)
@@ -95,21 +79,8 @@ class Login extends Component {
       })
   }
 
-  // getElectionDates(countyCode, city) {
-  //   axios.get(this.props.baseUrl + 'elections', { params: { county_code: countyCode, city: city } })
-  //     .then((response) => {
-  //       // console.log("inside getElectionDates", response.data)
-  //       this.props.setElectionDatesCallback(response.data.max_elections)
-  //     })
-  //     .catch((error) => {
-  //       console.log(error)
-  //     })
-  // }
-
-
 
   render() {
-    // console.log("Login state", this.state)
     return (
       <div>
         <h2 className='page-title'></h2>
