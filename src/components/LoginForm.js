@@ -44,11 +44,7 @@ class LoginForm extends Component {
       localStorage.clear();
     }
     this.props.getVoterCallback(this.state)
-    // this.setState({
-    //   // firstName: '',
-    //   // lastName: '',
 
-    // })
   }
 
 
