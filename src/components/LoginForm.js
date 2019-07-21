@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 import './LoginForm.css'
 
 
@@ -16,27 +18,37 @@ class LoginForm extends Component {
       month: '',
       day: '',
       year: '',
+      rememberMe: false,
 
     }
   }
   onInputChange = (event) => {
 
     const updatedState = {};
-    // console.log(event.target.name)
-    // console.log(event.target.value)
+    console.log(event.target.name)
+    console.log(event.target.value)
     updatedState[event.target.name] = event.target.value;
     this.setState(updatedState);
   }
+  toggleCheckbox = (event) => {
+
+    console.log(this.state.rememberMe)
+
+    this.setState({ rememberMe: !this.state.rememberMe });
+  }
 
   onSubmit = (event) => {
-
+    console.log("inside OnSubmit")
     event.preventDefault();
+    if (!this.state.rememberMe) {
+      localStorage.clear();
+    }
     this.props.getVoterCallback(this.state)
-    this.setState({
-      // firstName: '',
-      // lastName: '',
+    // this.setState({
+    //   // firstName: '',
+    //   // lastName: '',
 
-    })
+    // })
   }
 
 
@@ -138,6 +150,19 @@ class LoginForm extends Component {
             /> */}
             </TextField>
           </div>
+          <div>
+            <FormControlLabel
+              value="top"
+              control={<Checkbox
+                color="primary"
+                checked={this.state.rememberMe}
+                onChange={this.toggleCheckbox}
+                value={this.state.rememberMe}
+                name="rememberMe" />}
+              label="Remember me"
+              labelPlacement="top"
+            />
+          </div>
           <div className='btn'>
 
             <Button
@@ -148,6 +173,7 @@ class LoginForm extends Component {
               value="search"
             >Find me!</Button>
           </div>
+
         </form >
       </section >
     )

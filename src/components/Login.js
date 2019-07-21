@@ -31,11 +31,13 @@ class Login extends Component {
 
   // }
   componentDidMount() {
+
     console.log("inside Login ComponentDidMount")
     const voterID = localStorage.getItem('voterID')
+    console.log(voterID)
     if (voterID && !this.props.loggedIn) {
       console.log('calling getVOter')
-      this.getVoter({ voter_id: voterID })
+      this.getVoter({ voterID: voterID })
     }
   }
 
@@ -45,9 +47,11 @@ class Login extends Component {
     const queryParams = {
       first_name: userParams.firstName,
       last_name: userParams.lastName,
-      birthdate: `${userParams.month}-${userParams.day}-${userParams.year}`
+      birthdate: `${userParams.month}-${userParams.day}-${userParams.year}`,
+      voter_id: userParams.voterID
     }
-    // console.log(queryParams, "inside getVoter")
+    console.log(userParams.rememberMe)
+    console.log(queryParams, "inside getVoter")
     axios.get(this.props.baseUrl + 'voter', { params: queryParams })
       .then((response) => {
         const data = response.data
@@ -58,9 +62,11 @@ class Login extends Component {
           city: data.city,
           address: data.address,
           countyCode: data.county_code,
-          ageGroup: data.age_group
+          ageGroup: data.age_group,
+          rememberMe: userParams.rememberMe,
         }
         // this.setState(newState)
+
         this.getVotingHistory(voterInfo)
         // this.getElectionDates(data.county_code, data.city)
       })
@@ -71,14 +77,17 @@ class Login extends Component {
   }
 
   getVotingHistory(voterInfo) {
-    // console.log("inside getVotingHistory")
+    console.log("inside getVotingHistory")
     axios.get(this.props.baseUrl + 'vote_dates', { params: { state_voter_id: voterInfo.voterID } })
       .then((response) => {
         // console.log(response.data.voting_days)
         // this.setState({ votingHistory: response.data.voting_days })
         // this.props.setVotingHistoryCallback(response.data.voting_days)
         voterInfo.votingHistory = response.data.voting_days
+        console.log("+++++++++++++++++++++++++++++++")
+        console.log("voterInfo", voterInfo)
         this.props.loginCallback(voterInfo)
+
         this.props.history.push('/Stats')
       })
       .catch((error) => {

@@ -12,7 +12,7 @@ class BarGraph extends Component {
 
   formatData() {
     const data = this.props.data;
-    // console.log("in Bar Graph", data)
+    console.log("in Bar Graph format data")
     let formatedData = [];
     // console.log("logged In", this.props.loggedIn)
     if (data['18-24']) {

@@ -32,7 +32,7 @@ class AppRouter extends Component {
 
 
   getStats() {
-    // console.log(this.props)
+    console.log("inside getStats")
     const queryParams = {
       params: {
         city: this.state.city,
@@ -52,7 +52,7 @@ class AppRouter extends Component {
   }
 
   getReps() {
-    console.log("inside getReps", this.state.address)
+    console.log("inside getReps")
     const queryParams = { params: { address: this.state.address } }
     axios.get(baseUrl + 'reps', queryParams)
       .then((response) => {
@@ -65,11 +65,11 @@ class AppRouter extends Component {
       })
   }
   formatRepsData(repsData) {
-
+    console.log("inside formatRepsData")
     const formattedData = { country: [], state: [], county: [], place: [] };
     const officials = repsData.officials;
     const offices = repsData.offices;
-    console.log("offices", offices)
+    // console.log("offices", offices)
     for (const office of offices) {
       const divisionIDs = office.divisionId.split('/')
 
@@ -89,7 +89,7 @@ class AppRouter extends Component {
 
   }
   login = (voterInfo) => {
-    // console.log("inside login", voterInfo)
+    console.log("inside app router login")
     const newState = {
       loggedIn: true,
       votingHistory: voterInfo.votingHistory,
@@ -98,11 +98,18 @@ class AppRouter extends Component {
       countyCode: voterInfo.countyCode,
       ageGroup: voterInfo.ageGroup,
       address: voterInfo.address,
+
+    }
+    console.log('-----------------------')
+    console.log(voterInfo)
+    if (voterInfo.rememberMe) {
+      console.log("saved voterID")
+      localStorage.setItem('voterID', voterInfo.voterID)
     }
     this.setState(newState)
     this.getStats()
     this.getReps()
-    localStorage.setItem('voterID', voterInfo.voterID)
+
   }
   setLogout = () => {
     this.setState({ loggedIn: false })

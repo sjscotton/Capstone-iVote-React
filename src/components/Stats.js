@@ -17,6 +17,7 @@ class Stats extends Component {
 
 
   generateVotingBoxes(votingDates) {
+    console.log("inside generateVotingBoxes")
     // console.log("max elections", this.props.voterInfo.maxElections)
     return Array(this.props.voterInfo.maxElections).fill().map((none, i) => {
 
@@ -28,6 +29,7 @@ class Stats extends Component {
   }
 
   pieGraphVotingData(ageGroup) {
+    console.log("inside piegraphdata")
     const data = this.props.voterInfo.stats[ageGroup]
     // console.log("in pieGraphVotingData", ageGroup, data)
     if (data) {
