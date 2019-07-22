@@ -7,7 +7,8 @@ import Reps from './Reps'
 import axios from 'axios';
 import './AppRouter.css'
 
-const baseUrl = 'http://localhost:7000/ivote/'
+// const baseUrl = 'http://localhost:7000/ivote/'
+const baseUrl = 'http://ec2-34-212-21-218.us-west-2.compute.amazonaws.com/ivote/'
 
 class AppRouter extends Component {
 
