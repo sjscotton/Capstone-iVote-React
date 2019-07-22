@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Redirect } from 'react-router'
 
 import Login from './Login'
 import Stats from './Stats'
 import Reps from './Reps'
+// import Index from './Index'
 import axios from 'axios';
 import './AppRouter.css'
 
-// const baseUrl = 'http://localhost:7000/ivote/'
-const baseUrl = 'http://ec2-34-212-21-218.us-west-2.compute.amazonaws.com/ivote/'
+const baseUrl = 'http://localhost:7000/ivote/'
+// const baseUrl = 'http://ec2-34-212-21-218.us-west-2.compute.amazonaws.com/ivote/'
 
 class AppRouter extends Component {
 
@@ -153,6 +155,8 @@ class AppRouter extends Component {
 
                 />}
             />
+            <Redirect exact from="/" to="/Login" />
+
           </main>
         </div>
       </Router >
