@@ -64,7 +64,9 @@ class Login extends Component {
 
   getVotingHistory(voterInfo) {
     console.log("inside getVotingHistory")
-    axios.get(this.props.baseUrl + 'vote_dates', { params: { state_voter_id: voterInfo.voterID } })
+    const returningUser = (localStorage.getItem('voterID')) ? true : false;
+    const rememberMe = (voterInfo.rememberMe) ? true : false;
+    axios.get(this.props.baseUrl + 'vote_dates', { params: { state_voter_id: voterInfo.voterID, returning_user: returningUser, remember_me: rememberMe } })
       .then((response) => {
 
         voterInfo.votingHistory = response.data.voting_days

@@ -118,7 +118,7 @@ class CustomLabel extends Component {
   }
 }
 CustomLabel.defaultEvents = VictoryTooltip.defaultEvents;
-CustomLabel.propTypes = { text: PropTypes.string };
+// CustomLabel.propTypes = { text: PropTypes.string };
 
 
 export default BarGraph;

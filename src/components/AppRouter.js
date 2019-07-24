@@ -5,7 +5,7 @@ import { Redirect } from 'react-router'
 import Login from './Login'
 import Stats from './Stats'
 import Reps from './Reps'
-// import Index from './Index'
+import Loading from './Loading'
 import axios from 'axios';
 import './AppRouter.css'
 
@@ -84,6 +84,7 @@ class AppRouter extends Component {
 
   }
   login = (voterInfo) => {
+    console.log(voterInfo)
     const newState = {
       loggedIn: true,
       votingHistory: voterInfo.votingHistory,
@@ -92,6 +93,8 @@ class AppRouter extends Component {
       countyCode: voterInfo.countyCode,
       ageGroup: voterInfo.ageGroup,
       address: voterInfo.address,
+      firstName: voterInfo.firstName,
+      lastName: voterInfo.lastName
 
     }
     if (voterInfo.rememberMe) {
@@ -152,6 +155,16 @@ class AppRouter extends Component {
                   address={this.state.address}
                   formattedRepData={this.state.formattedRepData}
                   loggedIn={this.state.loggedIn}
+
+                />}
+            />
+            <Route
+              path="/loading/"
+              render={(props) =>
+                <Loading
+
+
+
 
                 />}
             />

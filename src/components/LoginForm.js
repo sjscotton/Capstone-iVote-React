@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 
 import TextField from '@material-ui/core/TextField';
@@ -38,7 +39,7 @@ class LoginForm extends Component {
       localStorage.clear();
     }
     this.props.getVoterCallback(this.state)
-
+    this.props.history.push('/Loading')
   }
 
 
@@ -76,10 +77,13 @@ class LoginForm extends Component {
           <div className='form-field'>
             <TextField
               className='mdc-text-field--outlined'
-              label='Month'
+              label='Month-MM'
               variant="outlined"
               name="month"
               type="text"
+              inputProps={{
+                maxLength: 2,
+              }}
               value={this.state.month}
               onChange={this.onInputChange}>
 
@@ -88,10 +92,13 @@ class LoginForm extends Component {
           <div className='form-field'>
             <TextField
               className='mdc-text-field--outlined'
-              label='Day'
+              label='Day-DD'
               variant="outlined"
               name="day"
               type="text"
+              inputProps={{
+                maxLength: 2,
+              }}
               value={this.state.day}
               onChange={this.onInputChange}>
             </TextField>
@@ -99,10 +106,14 @@ class LoginForm extends Component {
           <div className='form-field'>
             <TextField
               className='mdc-text-field--outlined'
-              label='Year'
+              label='Year-YYYY'
+
               variant="outlined"
               name="year"
               type="text"
+              inputProps={{
+                maxLength: 4,
+              }}
               value={this.state.year}
               onChange={this.onInputChange}>
             </TextField>
@@ -117,7 +128,7 @@ class LoginForm extends Component {
                 value={this.state.rememberMe}
                 name="rememberMe" />}
               label="Remember me"
-              labelPlacement="top"
+            // labelPlacement="right"
             />
           </div>
           <div className='btn'>
@@ -137,4 +148,4 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);
