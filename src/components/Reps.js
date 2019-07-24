@@ -14,11 +14,20 @@ const nonElectedPositions = ["Elections Director", "Assessor", "WA Supreme Court
 
 class Reps extends Component {
 
-
+  generateContactInfo(channels) {
+    return channels.map((channel, i) => {
+      return (
+        <li key={i}>{`${channel.type}: ${channel.id}`}</li>
+      )
+    })
+  }
   generateReps(region) {
     console.log("inside generateReps", this.props.formattedRepData)
     const officials = (this.props.formattedRepData) ? this.props.formattedRepData[region] : [];
+
     return officials.map((rep, i) => {
+      const email = (rep.emails) ? `Email: ${rep.emails[0]}` : '';
+      const socialMedia = (rep.channels) ? this.generateContactInfo(rep.channels) : [];
       if (nonElectedPositions.includes(rep.title)) {
         return (<div key={i}></div>)
       } else {
@@ -29,11 +38,26 @@ class Reps extends Component {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              {rep.name}
+              <div className="bold">{rep.title}</div>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
               <div className="rep-info">
-                <div>{rep.title}</div>
+
+                <p className="bold name">{rep.name}</p>
+
+
+                <div className="rep-flex">
+                  <ul className="contact-info phone">
+                    <li className="bold">Contact info:</li>
+                    <li>Phone: {rep.phones[0]}</li>
+                    <li>{email}</li>
+                  </ul>
+                  <ul className="contact-info ">
+                    <li className="bold">Social Media:</li>
+                    {socialMedia}
+                  </ul>
+
+                </div>
 
                 {/* <img src={rep.photoUrl} alt="official" /> */}
               </div>
@@ -54,7 +78,7 @@ class Reps extends Component {
     return (
       <div>
         <h2>My Representatives</h2>
-        <p>{this.props.address}</p>
+        {/* <p>{this.props.address}</p> */}
 
         <div className="panel-container">
           <h3>City</h3>

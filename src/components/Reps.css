@@ -2,3 +2,40 @@
   padding: .5rem;
   background-color: rgb(215, 227, 233);
 }
+
+ul.contact-info{
+  /* text-align: start; */
+  margin: 0;
+  min-width: 15rem ;
+}
+ul.contact-info.phone {
+  margin-right: 2rem;
+}
+@media only screen and (max-width: 600px) {
+  .rep-flex {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .rep-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between
+  }
+}
+
+p {
+  margin: 0 0 .5rem 0;
+  /* text-align: center */
+  /* font-size: 1.1rem; */
+  
+}
+
+.bold {
+  font-weight: bold;
+}
+.name {
+  font-size: 1.2rem;
+}

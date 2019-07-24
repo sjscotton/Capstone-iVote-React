@@ -170,10 +170,6 @@ class AppRouter extends Component {
               render={(props) =>
                 <Loading
                   firstName={this.state.firstName}
-
-
-
-
                 />}
             />
             <Redirect exact from="/" to="/Login" />

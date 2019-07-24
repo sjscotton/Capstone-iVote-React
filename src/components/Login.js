@@ -14,6 +14,7 @@ class Login extends Component {
       lastName: '',
       voterID: '',
       address: '',
+      errorMessage: '',
 
     }
   }
@@ -61,7 +62,7 @@ class Login extends Component {
       })
       .catch((error) => {
         console.log(error.message)
-
+        this.props.history.push('/Login')
       })
   }
 
@@ -78,9 +79,11 @@ class Login extends Component {
         this.props.loginCallback(voterInfo)
 
         this.props.history.push('/Stats')
+
       })
       .catch((error) => {
         console.log(error.message)
+        this.props.history.push('/Login')
       })
   }
 
