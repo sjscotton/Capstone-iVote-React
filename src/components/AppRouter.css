@@ -34,3 +34,12 @@ nav.nav-bar {
   
   color: white;
 }
+
+
+.spinner-flex {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
