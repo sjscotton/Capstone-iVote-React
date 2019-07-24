@@ -53,8 +53,11 @@ class Login extends Component {
           ageGroup: data.age_group,
           rememberMe: userParams.rememberMe,
         }
-
-        this.getVotingHistory(voterInfo)
+        if (voterInfo.rememberMe) {
+          localStorage.setItem('voterID', voterInfo.voterID)
+        }
+        this.props.addVoterCallback(voterInfo)
+        this.getVotingHistory({ rememberMe: userParams.rememberMe, voterID: data.voter_id, })
       })
       .catch((error) => {
         console.log(error.message)

@@ -84,10 +84,19 @@ class AppRouter extends Component {
 
   }
   login = (voterInfo) => {
-    console.log(voterInfo)
     const newState = {
       loggedIn: true,
       votingHistory: voterInfo.votingHistory,
+    }
+    this.setState(newState)
+    this.getStats()
+    this.getReps()
+  }
+  addVoter = (voterInfo) => {
+    console.log(voterInfo)
+    const newState = {
+      // loggedIn: true,
+      // votingHistory: voterInfo.votingHistory,
       voterID: voterInfo.voterID,
       city: voterInfo.city,
       countyCode: voterInfo.countyCode,
@@ -97,12 +106,9 @@ class AppRouter extends Component {
       lastName: voterInfo.lastName
 
     }
-    if (voterInfo.rememberMe) {
-      localStorage.setItem('voterID', voterInfo.voterID)
-    }
+
     this.setState(newState)
-    this.getStats()
-    this.getReps()
+
 
   }
   setLogout = () => {
@@ -133,6 +139,7 @@ class AppRouter extends Component {
               path="/login/"
               render={(props) =>
                 <Login
+                  addVoterCallback={this.addVoter}
                   loginCallback={this.login}
                   loggedIn={this.state.loggedIn}
                   setElectionDatesCallback={this.setElectionDates}
@@ -162,6 +169,7 @@ class AppRouter extends Component {
               path="/loading/"
               render={(props) =>
                 <Loading
+                  firstName={this.state.firstName}
 
 
 
