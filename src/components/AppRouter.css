@@ -9,7 +9,9 @@ ul {
 }
 a {
   text-decoration: none;
+  font-weight: bold;
 }
+
 .nav-list li {
   display: inline-block;
   margin-right: calc( 8vmin)
@@ -48,3 +50,11 @@ nav.nav-bar {
   align-items: center;
   justify-content: center;
 }
+
+.nav-list .active a, .nav-list .active a:visited {
+  color: rgb(68, 148, 222);
+  /* font-weight: bold; */
+}
+/* .nav-list a.active:visited, .nav-list a.active  {
+  color: rgb(68, 148, 222);
+} */

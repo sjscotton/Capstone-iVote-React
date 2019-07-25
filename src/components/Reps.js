@@ -14,6 +14,10 @@ const nonElectedPositions = ["Elections Director", "Assessor", "WA Supreme Court
 
 class Reps extends Component {
 
+  componentDidMount() {
+    this.props.setCurrPageCallback('reps')
+  }
+
   generateContactInfo(channels) {
     return channels.map((channel, i) => {
       return (

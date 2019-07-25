@@ -20,7 +20,7 @@ class Login extends Component {
   }
 
   componentDidMount() {
-
+    this.props.setCurrPageCallback('login')
     console.log("inside Login ComponentDidMount")
     const voterID = localStorage.getItem('voterID')
     console.log(voterID)

@@ -15,7 +15,9 @@ class Stats extends Component {
     }
   }
 
-
+  componentDidMount() {
+    this.props.setCurrPageCallback('stats')
+  }
   generateVotingBoxes(votingDates) {
     console.log("inside generateVotingBoxes")
     return Array(this.props.voterInfo.maxElections).fill().map((none, i) => {

@@ -28,6 +28,8 @@ class AppRouter extends Component {
       ageGroup: '',
       address: '',
 
+      currPage: '',
+
       formattedRepData: null,
       stats: {}
     }
@@ -114,21 +116,27 @@ class AppRouter extends Component {
   setLogout = () => {
     this.setState({ loggedIn: false })
   }
-  setElectionDates = (maxElections) => {
+  // setElectionDates = (maxElections) => {
+  // }
+  setCurrPage = (page) => {
+    this.setState({ currPage: page })
   }
   render() {
+    const login = (this.state.currPage === 'login') ? 'active' : '';
+    const stats = (this.state.currPage === 'stats') ? 'active' : '';
+    const reps = (this.state.currPage === 'reps') ? 'active' : '';
     return (
       <Router>
         <div className="App">
           <nav className="nav-bar">
             <ul className="nav-list">
-              <li>
+              <li className={login}>
                 <Link to="/login/">Find Me!</Link>
               </li>
-              <li>
+              <li className={stats}>
                 <Link to="/stats/">My Stats</Link>
               </li>
-              <li>
+              <li className={reps}>
                 <Link to="/reps/">My Reps</Link>
               </li>
             </ul>
@@ -143,7 +151,8 @@ class AppRouter extends Component {
                   loginCallback={this.login}
                   loggedIn={this.state.loggedIn}
                   setElectionDatesCallback={this.setElectionDates}
-                  baseUrl={baseUrl} />}
+                  baseUrl={baseUrl}
+                  setCurrPageCallback={this.setCurrPage} />}
             />
             <Route
               path="/stats/"
@@ -153,6 +162,7 @@ class AppRouter extends Component {
                   loggedIn={this.state.loggedIn}
                   maxElections={this.state.maxElections}
                   voterInfo={this.state}
+                  setCurrPageCallback={this.setCurrPage}
                 />}
             />
             <Route
@@ -162,6 +172,7 @@ class AppRouter extends Component {
                   address={this.state.address}
                   formattedRepData={this.state.formattedRepData}
                   loggedIn={this.state.loggedIn}
+                  setCurrPageCallback={this.setCurrPage}
 
                 />}
             />
