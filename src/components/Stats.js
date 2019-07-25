@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 import BarGraph from './BarGraph'
 import PieGraph from './PieGraph'
@@ -43,7 +44,9 @@ class Stats extends Component {
       })
     }
   }
-
+  onButtonClick = () => {
+    this.props.history.push('/Share')
+  }
 
   render() {
     // uncomment this to redirect if user not logged in
@@ -63,6 +66,18 @@ class Stats extends Component {
 
             {this.generateVotingBoxes(this.props.votingHistory)}
           </div>
+
+        </div>
+        <div className='btn'>
+
+          <Button
+            onClick={this.onButtonClick}
+            variant="contained"
+            color="primary"
+            type="submit"
+            name="submit"
+            value="create-image"
+          >Create Image</Button>
         </div>
         <div className="graph-container">
           <BarGraph data={this.props.voterInfo.stats} maxVotes={this.props.voterInfo.maxElections} loggedIn={this.props.loggedIn} maxElections={this.props.maxElections} />

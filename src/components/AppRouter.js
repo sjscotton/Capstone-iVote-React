@@ -6,8 +6,10 @@ import Login from './Login'
 import Stats from './Stats'
 import Reps from './Reps'
 import Loading from './Loading'
+import Share from './Share'
 import axios from 'axios';
 import './AppRouter.css'
+import { throwStatement } from '@babel/types';
 
 const baseUrl = 'http://localhost:7000/ivote/'
 // const baseUrl = 'http://ec2-34-212-21-218.us-west-2.compute.amazonaws.com/ivote/'
@@ -181,6 +183,16 @@ class AppRouter extends Component {
               render={(props) =>
                 <Loading
                   firstName={this.state.firstName}
+                />}
+            />
+            <Route
+              path="/share/"
+              render={(props) =>
+                <Share
+                  firstName={this.state.firstName}
+                  maxElections={this.state.maxElections}
+                  numVotes={this.state.votingHistory.length}
+
                 />}
             />
             <Redirect exact from="/" to="/Login" />

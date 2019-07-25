@@ -1,0 +1,35 @@
+.img-sticker {
+  height: 6rem;
+  width: 6rem;
+  margin: 2px 6px;
+  border-radius: 100%;
+  display: inline-block
+
+}
+
+.img-sticker.img-vote {
+  border: 5px solid rgb(23, 80, 129);
+  background-image: url("https://i.imgur.com/EYwhsdg.png")
+}
+
+.img-sticker.img-no-vote {
+  border: 5px solid rgb(124, 18, 18);
+  background-image: url("https://i.imgur.com/GERvwBT.png")
+}
+
+.sticker-img-box {
+  display: inline-block; 
+  /* display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: auto; */
+  /* flex-basis: content; */
+  /* margin: 2rem; */
+}
+
+.photo-container {
+  /* margin: 2rem; */
+  display: inline-flex;
+  flex-direction: column;
+  width: auto;
+}
