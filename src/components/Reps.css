@@ -1,6 +1,8 @@
 .panel-container {
   padding: .5rem;
   background-color: rgb(215, 227, 233);
+  border-radius: 8px;
+  max-width: 40rem;
 }
 
 ul.contact-info{
@@ -12,13 +14,20 @@ ul.contact-info.phone {
   margin-right: 2rem;
 }
 @media only screen and (max-width: 600px) {
+  .panel-container {
+    padding: .5rem;
+  }
   .rep-flex {
     display: flex;
     flex-direction: column;
   }
 }
 @media only screen and (min-width: 600px) {
+  .panel-container {
+    padding: 0 3rem ;
+  }
   .rep-flex {
+    
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
