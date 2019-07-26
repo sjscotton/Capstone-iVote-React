@@ -15,7 +15,12 @@ import './Reps.css'
 
 
 const nonElectedPositions = ["Elections Director", "Assessor", "WA Supreme Court Justice", "State Auditor", "Commissioner of Public Lands", "Secretary of State", "State Treasurer", "Insurance Commissioner", "State Superintendent of Public Instruction"]
+const socialMediaUrls = {
+  Facebook: 'https://www.facebook.com/',
+  Twitter: 'https://twitter.com/',
+  YouTube: 'https://www.youtube.com/user/',
 
+}
 
 class Reps extends Component {
 
@@ -36,7 +41,9 @@ class Reps extends Component {
   generateContactInfo(channels) {
     return channels.map((channel, i) => {
       return (
-        <li key={i}>{this.getSocialMediaIcon(channel.type)}{`${channel.id}`}</li>
+        <a href={`${socialMediaUrls[channel.type]}${channel.id}`}>
+          <li key={i}>{this.getSocialMediaIcon(channel.type)}{`${channel.id}`}</li>
+        </a>
       )
     })
   }
@@ -63,8 +70,6 @@ class Reps extends Component {
               <div className="rep-info">
 
                 <p className="bold name">{rep.name}</p>
-
-
                 <div className="rep-flex">
                   <ul className="contact-info phone">
                     <li className="bold">Contact info:</li>

@@ -2,7 +2,9 @@
   padding: .5rem;
   background-color: rgb(215, 227, 233);
   border-radius: 8px;
-  max-width: 40rem;
+  padding-bottom: 5rem;
+
+  /* max-width: 60rem; */
 }
 
 ul.contact-info{
@@ -13,26 +15,36 @@ ul.contact-info{
 ul.contact-info.phone {
   margin-right: 2rem;
 }
+
+.rep-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between
+}
 @media only screen and (max-width: 600px) {
   .panel-container {
-    padding: .5rem;
+    padding: .6rem;
+    width: 96vw;
   }
-  .rep-flex {
+  /* .rep-flex {
     display: flex;
-    flex-direction: column;
-  }
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between
+  } */
 }
 @media only screen and (min-width: 600px) {
   .panel-container {
     padding: 0 3rem ;
   }
-  .rep-flex {
+  /* .rep-flex {
     
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between
-  }
+  } */
 }
 
 p {
