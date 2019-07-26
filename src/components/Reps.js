@@ -81,7 +81,7 @@ class Reps extends Component {
     }
     return (
       <div>
-        <h2>My Representatives</h2>
+        <h1>My Representatives</h1>
         {/* <p>{this.props.address}</p> */}
 
         <div className="panel-container">

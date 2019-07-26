@@ -16,7 +16,7 @@ class CustomLabel extends Component {
         <VictoryTooltip
           {...this.props}
           x={200} y={275}
-          text={`%${percent} voted\n${this.props.text} time${plural}`}
+          text={`${percent}% voted\n${this.props.text} time${plural}`}
           orientation="top"
           pointerLength={0}
           cornerRadius={75}

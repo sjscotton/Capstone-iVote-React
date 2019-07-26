@@ -35,6 +35,7 @@ class LoginForm extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
+    localStorage.clear();
     if (!this.state.rememberMe) {
       localStorage.clear();
     }

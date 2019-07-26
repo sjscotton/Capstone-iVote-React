@@ -97,6 +97,7 @@
 
 .sticker.vote {
   border: 5px solid rgb(23, 80, 129);
+  /* border: 5px solid rgb(90, 96, 192); */
   animation-name: BounceIn;
   background-image: url("https://i.imgur.com/EYwhsdg.png")
 }

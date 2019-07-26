@@ -1,7 +1,14 @@
 form, h3, h2, h1, h4 {
   text-align: center;
 }
+h1 {
+  color:  rgb(23, 80, 129);
+  /* padding: 1rem; */
+  font-size: calc(1.6rem + 4vw);
+  margin: 2rem 0;
+  font-family: 'Courgette', cursive;
 
+}
 ul {
   list-style: none;
   padding: 0;
