@@ -192,6 +192,7 @@ class AppRouter extends Component {
                   firstName={this.state.firstName}
                   maxElections={this.state.maxElections}
                   numVotes={this.state.votingHistory.length}
+                  setCurrPageCallback={this.setCurrPage}
 
                 />}
             />

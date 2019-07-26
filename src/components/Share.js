@@ -11,8 +11,10 @@ class Share extends Component {
     }
   }
 
-  componentDidMount() {
 
+
+  componentDidMount() {
+    this.props.setCurrPageCallback('')
     const that = this;
     setTimeout(function () {
       let node = document.getElementById('photo');
