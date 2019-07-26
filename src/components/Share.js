@@ -61,10 +61,10 @@ class Share extends Component {
     const stickers = (this.state.image) ? this.generateImage() : this.generateImageArea();
     const msg = (this.state.image) ? 'Share this image to whichever media platform you prefer.' : '';
     return (
-      <div>
-
-        {stickers}
-
+      <div className="vertical-flex flex-container">
+        <div className="photo-padding">
+          {stickers}
+        </div>
         <h4>{msg}</h4>
       </div >
 

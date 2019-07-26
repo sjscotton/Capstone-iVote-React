@@ -61,14 +61,14 @@ class Stats extends Component {
 
         <h2>Stats</h2>
         <h4>{voteRecord}</h4>
-        <div className="headers-container">
-          <div className="stickers-container">
+        <div className="flex-container">
+          <div className="flex-container stickers-container">
 
             {this.generateVotingBoxes(this.props.votingHistory)}
           </div>
 
         </div>
-        <div className='btn'>
+        <div className='flex-container'>
 
           <Button
             onClick={this.onButtonClick}
@@ -79,7 +79,7 @@ class Stats extends Component {
             value="create-image"
           >Create Image</Button>
         </div>
-        <div className="graph-container">
+        <div className="flex-container">
           <BarGraph data={this.props.voterInfo.stats} maxVotes={this.props.voterInfo.maxElections} loggedIn={this.props.loggedIn} maxElections={this.props.maxElections} />
           <PieGraph data={data} />
         </div>

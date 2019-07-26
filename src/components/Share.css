@@ -19,17 +19,26 @@
 
 .sticker-img-box {
   display: inline-block; 
-  /* display: flex;
+  display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  width: auto; */
+  /* align-items: flex-start; */
+  /* width: auto; */
   /* flex-basis: content; */
   /* margin: 2rem; */
 }
 
 .photo-container {
   /* margin: 2rem; */
+  padding: 2rem;
   display: inline-flex;
   flex-direction: column;
   width: auto;
+  background-color: white;
+  border: 8px solid rgb(204, 222, 236);
 }
+
+.photo-padding {
+  margin: 10vh 0;
+  /* width:; */
+}
+
