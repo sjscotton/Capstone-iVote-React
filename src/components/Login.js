@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import LoginForm from './LoginForm'
 
+import logo from '../images/ivote.png';
 // import './Login.css'
 
 class Login extends Component {
@@ -40,8 +41,8 @@ class Login extends Component {
       birthdate: `${userParams.month}-${userParams.day}-${userParams.year}`,
       voter_id: userParams.voterID
     }
-    console.log(userParams.rememberMe)
-    console.log(queryParams, "inside getVoter")
+    // console.log(userParams.rememberMe)
+    // console.log(queryParams, "inside getVoter")
     axios.get(this.props.baseUrl + 'voter', { params: queryParams })
       .then((response) => {
         const data = response.data
@@ -83,8 +84,7 @@ class Login extends Component {
       .then((response) => {
 
         voterInfo.votingHistory = response.data.voting_days
-        console.log("+++++++++++++++++++++++++++++++")
-        console.log("voterInfo", voterInfo)
+
         this.props.loginCallback(voterInfo)
 
         this.props.history.push('/Stats')
@@ -99,8 +99,12 @@ class Login extends Component {
 
 
   render() {
+    console.log("logo", logo)
     return (
       <div >
+        <div className='flex-container'>
+          <img className='logo' src={logo} alt="logo"></img>
+        </div>
         <h2 className='sub-header'>Welcome!</h2>
         <div className='flex-container'>
           <div className='text-container'>
@@ -109,7 +113,8 @@ class Login extends Component {
           </div>
         </div>
         <LoginForm
-          getVoterCallback={this.getVoter} />
+          getVoterCallback={this.getVoter}
+          addErrorMessageCallback={this.props.addErrorMessageCallback} />
 
       </div>
     )

@@ -10,6 +10,7 @@ import Share from './Share'
 import ErrorMessage from './ErrorMessage'
 import axios from 'axios';
 import './AppRouter.css'
+
 // import { throwStatement } from '@babel/types';
 
 // const baseUrl = 'http://localhost:7000/ivote/'
@@ -71,7 +72,7 @@ class AppRouter extends Component {
     const queryParams = { params: { address: this.state.address } }
     axios.get(baseUrl + 'reps', queryParams)
       .then((response) => {
-        console.log(response.data)
+        // console.log(response.data)
         this.formatRepsData(response.data.reps)
       })
       .catch((error) => {
@@ -108,7 +109,7 @@ class AppRouter extends Component {
     this.getReps()
   }
   addVoter = (voterInfo) => {
-    console.log(voterInfo)
+    // console.log(voterInfo)
     const newState = {
       // loggedIn: true,
       // votingHistory: voterInfo.votingHistory,

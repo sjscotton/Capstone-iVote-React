@@ -10,7 +10,7 @@ const ErrorMessage = (props) => {
   if (props.message) {
     hidden = ''
   }
-  console.log(props.addErrorMessageCallback)
+  // console.log(props.addErrorMessageCallback)
   return (
     <div className={`${hidden} flex-container ${errorMessageStyle}`}>
 

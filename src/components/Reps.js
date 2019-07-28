@@ -30,7 +30,7 @@ class Reps extends Component {
   }
 
   getSocialMediaIcon(type) {
-    console.log(type)
+    // console.log(type)
     if (type === 'Facebook') {
       return (<FaFacebookSquare />)
     } else if (type === 'Twitter') {
@@ -58,7 +58,7 @@ class Reps extends Component {
     })
   }
   generateReps(region) {
-    console.log("inside generateReps", this.props.formattedRepData)
+    // console.log("inside generateReps", this.props.formattedRepData)
     const officials = (this.props.formattedRepData) ? this.props.formattedRepData[region] : [];
 
     return officials.map((rep, i) => {
