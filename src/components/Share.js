@@ -43,12 +43,20 @@ class Share extends Component {
   }
 
   generateImageArea() {
+    let name = (this.props.firstName) ? this.props.firstName.toLowerCase() : '';
+    if (name) {
+      name = name[0].toUpperCase() + name.slice(1)
+    }
+    const voteRecord = `${name} voted in ${this.props.numVotes} of the last ${this.props.maxElections} elections.`
     return (
       <div id='photo' className='photo-container'>
-        <h1>Do I Vote</h1>
-        <div className='sticker-img-box'>
+        <h1 className='photo-text'>Do I Vote</h1>
+        {/* <h2 className='photo-text'>{voteRecord}</h2> */}
+        <div className='sticker-img-box flex-container'>
           {this.generateVotingBoxes()}
         </div>
+        <h2 className='photo-text'>{voteRecord}</h2>
+        <h2 className='photo-text'>Do you vote?</h2>
 
       </div>
     )

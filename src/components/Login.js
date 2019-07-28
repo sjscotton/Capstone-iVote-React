@@ -90,8 +90,14 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
-        <h2 className='page-title'></h2>
+      <div >
+        <h2 className='sub-header'>Welcome!</h2>
+        <div className='flex-container'>
+          <div className='text-container'>
+            <p className='text'>iVote is tool that shows your voting history and how it compares to people in your area.</p>
+            <p className='text'>Please enter your name as it appears on your Washington State voter registration.</p>
+          </div>
+        </div>
         <LoginForm
           getVoterCallback={this.getVoter} />
 

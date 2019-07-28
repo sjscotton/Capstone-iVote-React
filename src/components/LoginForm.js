@@ -47,7 +47,7 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <section>
+      <section className='login-form'>
         <form
           onSubmit={this.onSubmit}>
           <h3>Name</h3>
@@ -119,7 +119,7 @@ class LoginForm extends Component {
               onChange={this.onInputChange}>
             </TextField>
           </div>
-          <div>
+          <div className='checkbox'>
             <FormControlLabel
               value="top"
               control={<Checkbox
@@ -142,6 +142,7 @@ class LoginForm extends Component {
               value="search"
             >Find me!</Button>
           </div>
+
 
         </form >
       </section >

@@ -1,14 +1,30 @@
-form, h3, h2, h1, h4 {
+form, h3, h2, h1, h4, p {
   text-align: center;
 }
-h1 {
+.title {
   color:  rgb(23, 80, 129);
   /* padding: 1rem; */
   font-size: calc(1.6rem + 4vw);
   margin: 2rem 0;
   font-family: 'Courgette', cursive;
 
+} 
+.sub-header {
+  color:  rgb(23, 80, 129);
+  font-family: 'Courgette', cursive;
+  font-size: calc(1rem + 3vw);
+
 }
+
+@media only screen and (min-width: 800px) {
+  .sub-header {
+    font-size: 2.7rem;
+  }
+  .title {
+    font-size: 3.8rem;
+  }
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -45,7 +61,6 @@ nav.nav-bar {
   /* align-items: center;
   justify-content: center; */
   font-size: calc(12px + 1vmin);
-  
   color: white;
 }
 
@@ -59,9 +74,28 @@ nav.nav-bar {
 }
 
 .nav-list .active a, .nav-list .active a:visited {
-  color: rgb(68, 148, 222);
+  /* color: rgb(68, 148, 222); */
+  color:  rgb(124, 165, 201);
   /* font-weight: bold; */
 }
 /* .nav-list a.active:visited, .nav-list a.active  {
   color: rgb(68, 148, 222);
 } */
+.text, h1, h2 {
+  padding: 1rem;
+}
+@media only screen and (max-width: 600px) {
+ .text {
+   font-size: 1rem;
+ }
+}
+@media only screen and (min-width: 600px) {
+  .text {
+    font-size: 1.3rem;
+  }
+}
+
+
+.text-container {
+  max-width: 40rem;
+}
