@@ -25,6 +25,7 @@ const socialMediaUrls = {
 class Reps extends Component {
 
   componentDidMount() {
+    this.props.addErrorMessageCallback('', '')
     this.props.setCurrPageCallback('reps')
   }
 

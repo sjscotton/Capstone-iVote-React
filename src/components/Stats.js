@@ -19,6 +19,7 @@ class Stats extends Component {
   }
 
   componentDidMount() {
+    this.props.addErrorMessageCallback('', '')
     this.props.setCurrPageCallback('stats')
   }
   generateVotingBoxes(votingDates) {

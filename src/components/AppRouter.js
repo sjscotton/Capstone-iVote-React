@@ -181,6 +181,7 @@ class AppRouter extends Component {
                   maxElections={this.state.maxElections}
                   voterInfo={this.state}
                   setCurrPageCallback={this.setCurrPage}
+                  addErrorMessageCallback={this.addErrorMessage}
                 />}
             />
             <Route
@@ -191,6 +192,7 @@ class AppRouter extends Component {
                   formattedRepData={this.state.formattedRepData}
                   loggedIn={this.state.loggedIn}
                   setCurrPageCallback={this.setCurrPage}
+                  addErrorMessageCallback={this.addErrorMessage}
 
                 />}
             />
