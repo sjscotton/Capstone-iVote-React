@@ -62,3 +62,6 @@ p {
 .name {
   font-size: 1.2rem;
 }
+p.name {
+  text-align: left;
+}

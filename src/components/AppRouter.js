@@ -7,12 +7,13 @@ import Stats from './Stats'
 import Reps from './Reps'
 import Loading from './Loading'
 import Share from './Share'
+import ErrorMessage from './ErrorMessage'
 import axios from 'axios';
 import './AppRouter.css'
-import { throwStatement } from '@babel/types';
+// import { throwStatement } from '@babel/types';
 
-const baseUrl = 'http://localhost:7000/ivote/'
-// const baseUrl = 'http://ec2-34-212-21-218.us-west-2.compute.amazonaws.com/ivote/'
+// const baseUrl = 'http://localhost:7000/ivote/'
+const baseUrl = 'http://ec2-34-212-21-218.us-west-2.compute.amazonaws.com/ivote/'
 
 class AppRouter extends Component {
 
@@ -33,8 +34,18 @@ class AppRouter extends Component {
       currPage: '',
 
       formattedRepData: null,
-      stats: {}
+      stats: {},
+      errorMessage: '',
+      errorStyle: '',
+
     }
+  }
+  addErrorMessage = (message, style) => {
+    console.log("added error message", message)
+    this.setState({
+      errorMessage: message,
+      errorStyle: style
+    })
   }
 
 
@@ -144,6 +155,10 @@ class AppRouter extends Component {
             </ul>
           </nav>
           <main >
+            <ErrorMessage
+              message={this.state.errorMessage}
+              addErrorMessageCallback={this.addErrorMessage}
+              errorStyle={this.state.errorStyle} />
 
             <Route
               path="/login/"
@@ -154,7 +169,8 @@ class AppRouter extends Component {
                   loggedIn={this.state.loggedIn}
                   setElectionDatesCallback={this.setElectionDates}
                   baseUrl={baseUrl}
-                  setCurrPageCallback={this.setCurrPage} />}
+                  setCurrPageCallback={this.setCurrPage}
+                  addErrorMessageCallback={this.addErrorMessage} />}
             />
             <Route
               path="/stats/"

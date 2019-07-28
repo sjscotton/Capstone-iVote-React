@@ -74,7 +74,7 @@ class LoginForm extends Component {
               onChange={this.onInputChange}>
             </TextField>
           </div>
-          <h3 className='form-lable'>Birthday</h3>
+          <h3 className='form-lable'>Birthdate</h3>
           <div className='form-field'>
             <TextField
               className='mdc-text-field--outlined'
@@ -140,7 +140,8 @@ class LoginForm extends Component {
               type="submit"
               name="submit"
               value="search"
-            >Find me!</Button>
+              size="medium"
+            >Find my voting history!</Button>
           </div>
 
 

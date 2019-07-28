@@ -20,6 +20,7 @@ class Login extends Component {
   }
 
   componentDidMount() {
+
     this.props.setCurrPageCallback('login')
     console.log("inside Login ComponentDidMount")
     const voterID = localStorage.getItem('voterID')
@@ -57,11 +58,19 @@ class Login extends Component {
         if (voterInfo.rememberMe) {
           localStorage.setItem('voterID', voterInfo.voterID)
         }
+        this.props.addErrorMessageCallback('', '')
         this.props.addVoterCallback(voterInfo)
         this.getVotingHistory({ rememberMe: userParams.rememberMe, voterID: data.voter_id, })
       })
       .catch((error) => {
         console.log(error.message)
+        if (error.message === 'Request failed with status code 400') {
+          console.log("400")
+          const message = "Cant make request, ensure all form fields are filled out"
+          this.props.addErrorMessageCallback(message, 'warning')
+        } else {
+          console.log('404')
+        }
         this.props.history.push('/Login')
       })
   }
@@ -83,6 +92,7 @@ class Login extends Component {
       })
       .catch((error) => {
         console.log(error.message)
+
         this.props.history.push('/Login')
       })
   }
