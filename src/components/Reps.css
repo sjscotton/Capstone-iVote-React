@@ -24,7 +24,7 @@ ul.contact-info.phone {
 }
 @media only screen and (max-width: 600px) {
   .panel-container {
-    padding: .6rem;
+    padding:.6rem;
     width: 96vw;
   }
   /* .rep-flex {
@@ -36,7 +36,9 @@ ul.contact-info.phone {
 }
 @media only screen and (min-width: 600px) {
   .panel-container {
-    padding: 0 3rem ;
+    padding: 0 3rem 3rem 3rem ;
+    width: 96vw;
+    max-width: 48rem;
   }
   /* .rep-flex {
     
