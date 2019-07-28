@@ -3,7 +3,7 @@
 
 
 .form-field {
-  margin: .5rem 1.5rem .5rem 1.5rem;
+  margin: .5rem ;
   display: inline-block;
 }
 
@@ -12,8 +12,11 @@
 }
 
 .login-form {
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 .checkbox {
   margin-top: 1rem;
+}
+.form-lable {
+  margin: 1.5rem 0 .5rem 0;
 }

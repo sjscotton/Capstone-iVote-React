@@ -50,7 +50,7 @@ class LoginForm extends Component {
       <section className='login-form'>
         <form
           onSubmit={this.onSubmit}>
-          <h3>Name</h3>
+          <h3 className='form-lable'>Name</h3>
           <div className='form-field'>
 
             <TextField
@@ -74,7 +74,7 @@ class LoginForm extends Component {
               onChange={this.onInputChange}>
             </TextField>
           </div>
-          <h3>Birthday</h3>
+          <h3 className='form-lable'>Birthday</h3>
           <div className='form-field'>
             <TextField
               className='mdc-text-field--outlined'
