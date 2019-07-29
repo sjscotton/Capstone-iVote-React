@@ -38,15 +38,15 @@ class Reps extends Component {
     }
   }
 
-  linkPage = (channel) => {
-    const win = window.open(socialMediaUrls[channel.type], '_blank');
-    win.focus();
-  }
+  // linkPage = (channel) => {
+  //   const win = window.open(socialMediaUrls[channel.type], '_blank');
+  //   win.focus();
+  // }
 
   generateContactInfo(channels) {
     return channels.map((channel, i) => {
       return (
-        <a key={i} href={`${socialMediaUrls[channel.type]}${channel.id}`} target="_blank">
+        <a key={i} href={`${socialMediaUrls[channel.type]}${channel.id}`} rel="noopener noreferrer" target="_blank">
           <li >{this.getSocialMediaIcon(channel.type)}{`${channel.id}`}</li>
         </a>
       )
