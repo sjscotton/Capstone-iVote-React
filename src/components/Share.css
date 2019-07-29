@@ -37,6 +37,7 @@
 h2.photo-text {
   font-size: 2.3rem;
   color: rgb(23, 80, 129);
+  margin: .5rem;
 }
 
 .photo-container {
@@ -47,7 +48,8 @@ h2.photo-text {
   width: 38rem;
   height: 38rem;
   /* background-color: white; */
-  background-color: rgb(204, 222, 236);
+  background-color: rgb(229, 238, 245);
+  /* background-color: rgb(204, 222, 236); */
   /* border: 8px solid rgb(204, 222, 236); */
 }
 
@@ -56,3 +58,7 @@ h2.photo-text {
   /* width:; */
 }
 
+
+.share-logo {
+  padding-bottom: 2rem;
+}

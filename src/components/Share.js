@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import domtoimage from 'dom-to-image';
 import './Share.css'
 
+import logo from '../images/ivote.png';
 
 class Share extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class Share extends Component {
       domtoimage.toPng(node).then(function (dataUrl) {
         var img = new Image();
         img.src = dataUrl
-        that.setState({ image: dataUrl })
+        // that.setState({ image: dataUrl })
       }).catch(function (error) {
         console.error('oops, something went wrong!', error);
       });
@@ -36,7 +37,7 @@ class Share extends Component {
       const img = this.props.numVotes > i ? "https://i.imgur.com/EYwhsdg.png" : "https://i.imgur.com/GERvwBT.png";
       return (
 
-        <img src={img} alt="vote sticker" className={`img-sticker ${style}`} />
+        <img key={i} src={img} alt="vote sticker" className={`img-sticker ${style}`} />
 
       )
     })
@@ -50,7 +51,9 @@ class Share extends Component {
     const voteRecord = `${name} voted in ${this.props.numVotes} of the last ${this.props.maxElections} elections.`
     return (
       <div id='photo' className='photo-container'>
-        <h1 className='photo-text'>Do I Vote</h1>
+        <div className='flex-container'>
+          <img className='logo share-logo' src={logo} alt='logo' />
+        </div>
         {/* <h2 className='photo-text'>{voteRecord}</h2> */}
         <div className='sticker-img-box flex-container'>
           {this.generateVotingBoxes()}
@@ -71,11 +74,15 @@ class Share extends Component {
     const stickers = (this.state.image) ? this.generateImage() : this.generateImageArea();
     const msg = (this.state.image) ? 'Share this image to whichever media platform you prefer.' : '';
     return (
-      <div className="vertical-flex flex-container">
-        <div className="photo-padding">
-          {stickers}
-        </div>
-        <h4>{msg}</h4>
+      <div>
+        <div className="flex-container">
+          <div className="photo-padding">
+            {stickers}
+          </div>
+        </div >
+        <div className="flex-container">
+          <h4>{msg}</h4>
+        </div >
       </div >
 
 

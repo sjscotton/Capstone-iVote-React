@@ -48,8 +48,8 @@ class Reps extends Component {
   generateContactInfo(channels) {
     return channels.map((channel, i) => {
       return (
-        <a href={`${socialMediaUrls[channel.type]}${channel.id}`} target="_blank">
-          <li key={i}>{this.getSocialMediaIcon(channel.type)}{`${channel.id}`}</li>
+        <a key={i} href={`${socialMediaUrls[channel.type]}${channel.id}`} target="_blank">
+          <li >{this.getSocialMediaIcon(channel.type)}{`${channel.id}`}</li>
         </a>
         // <a href={`${socialMediaUrls[channel.type]}${channel.id}`}>
         // <li key={i} onClick={this.linkPage(channel)}>{this.getSocialMediaIcon(channel.type)}{`${channel.id}`}</li>
