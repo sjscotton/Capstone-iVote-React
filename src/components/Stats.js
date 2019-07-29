@@ -31,20 +31,20 @@ class Stats extends Component {
     })
   }
 
-  pieGraphVotingData(ageGroup) {
-    const data = this.props.voterInfo.stats[ageGroup]
-    if (data) {
-      const sampleSize = data.reduce((a, b) => a + b, 0)
-      return data.map((voterFreq, i) => {
-        const numVotes = (i === 0) ? '0' : i;
-        if (voterFreq === 0) {
-          return { label: '', y: '', percent: '' }
-        }
-        const data = { label: numVotes, y: voterFreq, percent: Math.round((voterFreq / sampleSize) * 100) }
-        return data
-      })
-    }
-  }
+  // pieGraphVotingData(ageGroup) {
+  //   const data = this.props.voterInfo.stats[ageGroup]
+  //   if (data) {
+  //     const sampleSize = data.reduce((a, b) => a + b, 0)
+  //     return data.map((voterFreq, i) => {
+  //       const numVotes = (i === 0) ? '0' : i;
+  //       if (voterFreq === 0) {
+  //         return { label: '', y: '', percent: '' }
+  //       }
+  //       const data = { label: numVotes, y: voterFreq, percent: Math.round((voterFreq / sampleSize) * 100) }
+  //       return data
+  //     })
+  //   }
+  // }
   onButtonClick = () => {
     this.props.history.push('/Share')
   }
@@ -99,8 +99,8 @@ class Stats extends Component {
       this.props.addErrorMessageCallback('We need to lookup your voter information to show this page.', 'warning')
       this.props.history.push('/Login')
     }
-    const age = this.props.voterInfo.ageGroup;
-    const data = this.pieGraphVotingData(age);
+    // const age = this.props.voterInfo.ageGroup;
+    // const data = this.pieGraphVotingData(age);
     const voteRecord = `You voted in ${this.props.votingHistory.length} of the last ${this.props.voterInfo.maxElections} elections.`
     return (
       <div>
@@ -128,8 +128,12 @@ class Stats extends Component {
         </div>
         <div className="flex-container">
 
-          <PieGraph data={data} />
-          <InfoCard percentile={ageGroupPercentile} group={age} />
+          <PieGraph
+            // data={data}
+            stats={this.props.voterInfo.stats}
+            ageGroup={ageGroup}
+            ageGroups={AgeGroups} />
+          <InfoCard percentile={ageGroupPercentile} group={ageGroup} />
           <InfoCard percentile={overallPercentile} />
           <BarGraph data={this.props.voterInfo.stats} maxVotes={this.props.voterInfo.maxElections} loggedIn={this.props.loggedIn} maxElections={this.props.maxElections} />
 

@@ -32,7 +32,29 @@ CustomLabel.defaultEvents = VictoryTooltip.defaultEvents;
 CustomLabel.propTypes = { text: PropTypes.string };
 
 class PieGraph extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      ageGroup: this.props.ageGroup
+    }
+  }
+
+  pieGraphVotingData(ageGroup) {
+    const data = this.props.stats[ageGroup]
+    if (data) {
+      const sampleSize = data.reduce((a, b) => a + b, 0)
+      return data.map((voterFreq, i) => {
+        const numVotes = (i === 0) ? '0' : i;
+        if (voterFreq === 0) {
+          return { label: '', y: '', percent: '' }
+        }
+        const data = { label: numVotes, y: voterFreq, percent: Math.round((voterFreq / sampleSize) * 100) }
+        return data
+      })
+    }
+  }
   render() {
+    const data = this.pieGraphVotingData(this.state.ageGroup)
     return (
       <div className="graph">
         <h3>Number of times people your age voted in your City</h3>
@@ -43,7 +65,7 @@ class PieGraph extends Component {
           labelRadius={110}
           labels={(d) => d.y}
           labelComponent={<CustomLabel />}
-          data={this.props.data}
+          data={data}
         />
       </div>
     );
