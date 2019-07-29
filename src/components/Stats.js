@@ -132,10 +132,16 @@ class Stats extends Component {
             // data={data}
             stats={this.props.voterInfo.stats}
             ageGroup={ageGroup}
-            ageGroups={AgeGroups} />
+            ageGroups={AgeGroups}
+            city={this.props.city} />
           <InfoCard percentile={ageGroupPercentile} group={ageGroup} />
           <InfoCard percentile={overallPercentile} />
-          <BarGraph data={this.props.voterInfo.stats} maxVotes={this.props.voterInfo.maxElections} loggedIn={this.props.loggedIn} maxElections={this.props.maxElections} />
+          <BarGraph
+            data={this.props.voterInfo.stats}
+            maxVotes={this.props.voterInfo.maxElections}
+            loggedIn={this.props.loggedIn}
+            maxElections={this.props.maxElections}
+            city={this.props.city} />
 
         </div>
       </div >

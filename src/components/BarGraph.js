@@ -47,7 +47,7 @@ class BarGraph extends Component {
 
 
       <div className='graph'>
-        <h3>Number of times people voted in your city by age group</h3>
+        <h3>Number of times people voted in {this.props.city}</h3>
         <VictoryChart
           domainPadding={0}
           theme={VictoryTheme.material}

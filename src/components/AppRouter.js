@@ -52,13 +52,14 @@ class AppRouter extends Component {
   }
 
   addPercentile = (percentileArray) => {
-
     this.setState({ percentile: percentileArray })
   }
   clearName = () => {
     this.setState({
       firstName: '',
       percentile: '',
+      ageGroup: '',
+      stats: {},
     })
   }
   getStats() {
@@ -188,6 +189,7 @@ class AppRouter extends Component {
                   addErrorMessageCallback={this.addErrorMessage}
                   addPercentileCallback={this.addPercentile}
                   percentile={this.state.percentile}
+                  city={this.state.city}
                 />}
             />
             <Route
