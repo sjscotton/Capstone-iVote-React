@@ -4,7 +4,7 @@ import axios from 'axios';
 import LoginForm from './LoginForm'
 
 import logo from '../images/ivote.png';
-// import './Login.css'
+
 
 class Login extends Component {
 
@@ -23,11 +23,8 @@ class Login extends Component {
   componentDidMount() {
 
     this.props.setCurrPageCallback('login')
-    console.log("inside Login ComponentDidMount")
     const voterID = localStorage.getItem('voterID')
-    console.log(voterID)
     if (voterID && !this.props.loggedIn) {
-      console.log('calling getVOter')
       this.getVoter({ voterID: voterID })
     }
   }
@@ -41,8 +38,6 @@ class Login extends Component {
       birthdate: `${userParams.month}-${userParams.day}-${userParams.year}`,
       voter_id: userParams.voterID
     }
-    // console.log(userParams.rememberMe)
-    // console.log(queryParams, "inside getVoter")
     axios.get(this.props.baseUrl + 'voter', { params: queryParams })
       .then((response) => {
         const data = response.data
@@ -66,7 +61,6 @@ class Login extends Component {
       .catch((error) => {
         console.log(error.message)
         if (error.message === 'Request failed with status code 400') {
-          console.log("400")
           const message = "Cant make request, ensure all form fields are filled out"
           this.props.addErrorMessageCallback(message, 'warning')
         } else {
@@ -77,29 +71,22 @@ class Login extends Component {
   }
 
   getVotingHistory(voterInfo) {
-    console.log("inside getVotingHistory")
     const returningUser = (localStorage.getItem('voterID')) ? true : false;
     const rememberMe = (voterInfo.rememberMe) ? true : false;
     axios.get(this.props.baseUrl + 'vote_dates', { params: { state_voter_id: voterInfo.voterID, returning_user: returningUser, remember_me: rememberMe } })
       .then((response) => {
-
         voterInfo.votingHistory = response.data.voting_days
-
         this.props.loginCallback(voterInfo)
-
         this.props.history.push('/Stats')
-
       })
       .catch((error) => {
         console.log(error.message)
-
         this.props.history.push('/Login')
       })
   }
 
 
   render() {
-    console.log("logo", logo)
     return (
       <div >
         <div className='flex-container'>
@@ -108,7 +95,7 @@ class Login extends Component {
         <h2 className='sub-header'>Welcome!</h2>
         <div className='flex-container'>
           <div className='text-container'>
-            <p className='text'>iVote is tool that shows your voting history and how it compares to people in your area.</p>
+            <p className='text'>Do I Vote is tool that shows your voting history and how it compares to people in your area.</p>
             <p className='text'>Please enter your name as it appears on your Washington State voter registration.</p>
           </div>
         </div>

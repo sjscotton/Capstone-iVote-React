@@ -23,13 +23,7 @@
   display: inline-block; 
   display: flex;
   flex-direction: row;
-  /* flex-wrap: wrap; */
   max-width: 40rem;
-
-  /* align-items: flex-start; */
-  /* width: auto; */
-  /* flex-basis: content; */
-  /* margin: 2rem; */
 }
 .photo-text {
   font-family: cursive;
@@ -41,21 +35,16 @@ h2.photo-text {
 }
 
 .photo-container {
-  /* margin: 2rem; */
   padding: 1rem;
   display: inline-flex;
   flex-direction: column;
   width: 38rem;
   height: 38rem;
-  /* background-color: white; */
   background-color: rgb(229, 238, 245);
-  /* background-color: rgb(204, 222, 236); */
-  /* border: 8px solid rgb(204, 222, 236); */
 }
 
 .photo-padding {
   margin: 10vh 0;
-  /* width:; */
 }
 
 

@@ -24,7 +24,7 @@ class Share extends Component {
       domtoimage.toPng(node).then(function (dataUrl) {
         var img = new Image();
         img.src = dataUrl
-        // that.setState({ image: dataUrl })
+        that.setState({ image: dataUrl })
       }).catch(function (error) {
         console.error('oops, something went wrong!', error);
       });
@@ -54,7 +54,6 @@ class Share extends Component {
         <div className='flex-container'>
           <img className='logo share-logo' src={logo} alt='logo' />
         </div>
-        {/* <h2 className='photo-text'>{voteRecord}</h2> */}
         <div className='sticker-img-box flex-container'>
           {this.generateVotingBoxes()}
         </div>
@@ -65,7 +64,6 @@ class Share extends Component {
     )
   }
   generateImage() {
-    console.log(this.state.image)
     return (
       <img src={this.state.image} alt="Voting streak" />
     )
@@ -84,19 +82,6 @@ class Share extends Component {
           <h4>{msg}</h4>
         </div >
       </div >
-
-
-
-      // <div>
-      //   <div className='photo-container'>
-      //     {/* <h1>Do I Vote</h1> */}
-      //     <div id='photo' className='sticker-img-box'>
-      //       {stickers}
-      //     </div>
-
-      //   </div>
-      //   <h4>{msg}</h4>
-      // </div >
     )
   }
 

@@ -19,7 +19,6 @@ const socialMediaUrls = {
   Facebook: 'https://www.facebook.com/',
   Twitter: 'https://twitter.com/',
   YouTube: 'https://www.youtube.com/user/',
-
 }
 
 class Reps extends Component {
@@ -30,7 +29,6 @@ class Reps extends Component {
   }
 
   getSocialMediaIcon(type) {
-    // console.log(type)
     if (type === 'Facebook') {
       return (<FaFacebookSquare />)
     } else if (type === 'Twitter') {
@@ -51,14 +49,10 @@ class Reps extends Component {
         <a key={i} href={`${socialMediaUrls[channel.type]}${channel.id}`} target="_blank">
           <li >{this.getSocialMediaIcon(channel.type)}{`${channel.id}`}</li>
         </a>
-        // <a href={`${socialMediaUrls[channel.type]}${channel.id}`}>
-        // <li key={i} onClick={this.linkPage(channel)}>{this.getSocialMediaIcon(channel.type)}{`${channel.id}`}</li>
-        // </a>
       )
     })
   }
   generateReps(region) {
-    // console.log("inside generateReps", this.props.formattedRepData)
     const officials = (this.props.formattedRepData) ? this.props.formattedRepData[region] : [];
 
     return officials.map((rep, i) => {
@@ -92,7 +86,6 @@ class Reps extends Component {
                   </ul>
 
                 </div>
-
                 {/* <img src={rep.photoUrl} alt="official" /> */}
               </div>
 
@@ -104,7 +97,6 @@ class Reps extends Component {
   }
 
   render() {
-
     // uncomment this to redirect if user not logged in
     if (!this.props.loggedIn) {
       this.props.history.push('/Login')
@@ -124,7 +116,6 @@ class Reps extends Component {
             <h3>United States</h3>
             <div>{this.generateReps('country')}</div>
           </div>
-
 
         </div>
 

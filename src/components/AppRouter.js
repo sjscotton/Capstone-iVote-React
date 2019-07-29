@@ -42,16 +42,13 @@ class AppRouter extends Component {
     }
   }
   addErrorMessage = (message, style) => {
-    console.log("added error message", message)
     this.setState({
       errorMessage: message,
       errorStyle: style
     })
   }
 
-
   getStats() {
-    console.log("inside getStats")
     const queryParams = {
       params: {
         city: this.state.city,
@@ -68,11 +65,9 @@ class AppRouter extends Component {
   }
 
   getReps() {
-    console.log("inside getReps")
     const queryParams = { params: { address: this.state.address } }
     axios.get(baseUrl + 'reps', queryParams)
       .then((response) => {
-        // console.log(response.data)
         this.formatRepsData(response.data.reps)
       })
       .catch((error) => {
@@ -80,7 +75,6 @@ class AppRouter extends Component {
       })
   }
   formatRepsData(repsData) {
-    console.log("inside formatRepsData")
     const formattedData = { country: [], state: [], county: [], place: [] };
     const officials = repsData.officials;
     const offices = repsData.offices;
@@ -109,10 +103,7 @@ class AppRouter extends Component {
     this.getReps()
   }
   addVoter = (voterInfo) => {
-    // console.log(voterInfo)
     const newState = {
-      // loggedIn: true,
-      // votingHistory: voterInfo.votingHistory,
       voterID: voterInfo.voterID,
       city: voterInfo.city,
       countyCode: voterInfo.countyCode,
@@ -120,21 +111,18 @@ class AppRouter extends Component {
       address: voterInfo.address,
       firstName: voterInfo.firstName,
       lastName: voterInfo.lastName
-
     }
-
     this.setState(newState)
-
-
   }
+
   setLogout = () => {
     this.setState({ loggedIn: false })
   }
-  // setElectionDates = (maxElections) => {
-  // }
+
   setCurrPage = (page) => {
     this.setState({ currPage: page })
   }
+
   render() {
     const login = (this.state.currPage === 'login') ? 'active' : '';
     const stats = (this.state.currPage === 'stats') ? 'active' : '';

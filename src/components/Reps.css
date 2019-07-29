@@ -3,12 +3,9 @@
   background-color: rgb(215, 227, 233);
   border-radius: 8px;
   padding-bottom: 5rem;
-
-  /* max-width: 60rem; */
 }
 
 ul.contact-info{
-  /* text-align: start; */
   margin: 0;
   min-width: 15rem ;
 }
@@ -27,12 +24,6 @@ ul.contact-info.phone {
     padding:.6rem;
     width: 96vw;
   }
-  /* .rep-flex {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between
-  } */
 }
 @media only screen and (min-width: 600px) {
   .panel-container {
@@ -40,20 +31,10 @@ ul.contact-info.phone {
     width: 96vw;
     max-width: 48rem;
   }
-  /* .rep-flex {
-    
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between
-  } */
 }
 
 p {
   margin: 0 0 .5rem 0;
-  /* text-align: center */
-  /* font-size: 1.1rem; */
-  
 }
 
 .bold {

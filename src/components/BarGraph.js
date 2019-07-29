@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack, VictoryLabel, VictoryTooltip } from 'victory';
-import PropTypes from 'prop-types';
 
 import './Graph.css'
 
@@ -12,10 +11,8 @@ class BarGraph extends Component {
 
   formatData() {
     const data = this.props.data;
-    console.log("in Bar Graph format data")
     let formatedData = [];
     if (data['18-24']) {
-
       for (const ageGroup of AgeGroups) {
         const ageGroupData = { ageGroup: ageGroup, data: [] }
         for (let i = 0; i < data['18-24'].length; i += 1) {
@@ -46,18 +43,14 @@ class BarGraph extends Component {
   }
   render() {
     const data = this.generateVictoryBars(this.formatData())
-    console.log(this.props)
     return (
-
 
 
       <div className='graph'>
         <h3>Number of times people voted in your city by age group</h3>
         <VictoryChart
           domainPadding={0}
-
           theme={VictoryTheme.material}
-
         >
           <VictoryAxis
             tickValues={[0, 1, 2, 3, 4, 5]}
@@ -118,7 +111,5 @@ class CustomLabel extends Component {
   }
 }
 CustomLabel.defaultEvents = VictoryTooltip.defaultEvents;
-// CustomLabel.propTypes = { text: PropTypes.string };
-
 
 export default BarGraph;

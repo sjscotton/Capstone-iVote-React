@@ -11,8 +11,6 @@ function Loading(props) {
       <h3>{msgOne}</h3>
       <h3>{msgTwo}</h3>
       <div className='spinner-flex'><Spinner size={100} spinnerColor={"#2c8396"} spinnerWidth={10} visible={true} /></div>
-
-
     </div>
   );
 }

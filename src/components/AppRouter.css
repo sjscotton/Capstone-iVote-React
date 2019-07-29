@@ -3,7 +3,6 @@ form, h3, h2, h1, h4, p {
 }
 .title {
   color:  rgb(23, 80, 129);
-  /* padding: 1rem; */
   font-size: calc(1.6rem + 4vw);
   margin: 0;
   font-family: 'Courgette', cursive;
@@ -14,7 +13,6 @@ form, h3, h2, h1, h4, p {
   font-family: 'Courgette', cursive;
   font-size: calc(1rem + 3vw);
   margin: 0;
-
 }
 
 @media only screen and (min-width: 800px) {
@@ -29,7 +27,6 @@ form, h3, h2, h1, h4, p {
 ul {
   list-style: none;
   padding: 0;
-  /* margin: 0; */
 }
 a {
   text-decoration: none;
@@ -49,18 +46,13 @@ a {
 
 .nav-list a:visited, .nav-list a {
   color: white;
-  /* text-decoration: none; */
 }
-
 
 nav.nav-bar {
   background-color: #282c34;
   height: calc(2.2rem + 3vmin);
-  /* max-height: 4rem; */
   display: flex;
   flex-direction: row;
-  /* align-items: center;
-  justify-content: center; */
   font-size: calc(12px + 1vmin);
   color: white;
 }
@@ -75,13 +67,10 @@ nav.nav-bar {
 }
 
 .nav-list .active a, .nav-list .active a:visited {
-  /* color: rgb(68, 148, 222); */
   color:  rgb(124, 165, 201);
-  /* font-weight: bold; */
+
 }
-/* .nav-list a.active:visited, .nav-list a.active  {
-  color: rgb(68, 148, 222);
-} */
+
 .text, h1, h2 {
   padding: 1rem;
 }

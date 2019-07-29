@@ -44,8 +44,6 @@ class LoginForm extends Component {
     this.props.history.push('/Loading')
   }
 
-
-
   render() {
     return (
       <section className='login-form'>
@@ -53,7 +51,6 @@ class LoginForm extends Component {
           onSubmit={this.onSubmit}>
           <h3 className='form-lable'>Name</h3>
           <div className='form-field'>
-
             <TextField
               className='mdc-text-field--outlined'
               label='First'
@@ -130,7 +127,6 @@ class LoginForm extends Component {
                 value={this.state.rememberMe}
                 name="rememberMe" />}
               label="Remember me"
-            // labelPlacement="right"
             />
           </div>
           <div className='btn'>
