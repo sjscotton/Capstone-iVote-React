@@ -111,7 +111,7 @@ class Reps extends Component {
     }
     return (
       <div>
-        <h1 className='title'>My Representatives</h1>
+        <h1 className='title'>Your Representatives</h1>
         {/* <p>{this.props.address}</p> */}
         <div className='flex-container'>
           <div className="panel-container">
