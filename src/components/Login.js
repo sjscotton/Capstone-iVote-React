@@ -65,6 +65,9 @@ class Login extends Component {
           this.props.addErrorMessageCallback(message, 'warning')
         } else {
           console.log('404')
+          const message = <p>Unable to find voter information. Please make sure all fields are as they appear on your washington state voting registration. You can check your voter registration or register to vote at <a href="https://www.sos.wa.gov/elections/voters/">https://www.sos.wa.gov</a>.</p>
+          // const link = <a href="https://www.sos.wa.gov/elections/voters/">https://www.sos.wa.gov</a>
+          this.props.addErrorMessageCallback(message, 'warning')
         }
         this.props.history.push('/Login')
       })
@@ -100,6 +103,7 @@ class Login extends Component {
           </div>
         </div>
         <LoginForm
+          clearNameCallback={this.props.clearNameCallback}
           getVoterCallback={this.getVoter}
           addErrorMessageCallback={this.props.addErrorMessageCallback} />
 

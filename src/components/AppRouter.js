@@ -46,10 +46,13 @@ class AppRouter extends Component {
     console.log(message)
     this.setState({
       errorMessage: message,
-      errorStyle: style
+      errorStyle: style,
     })
   }
 
+  clearName = () => {
+    this.setState({ firstName: '' })
+  }
   getStats() {
     const queryParams = {
       params: {
@@ -148,6 +151,7 @@ class AppRouter extends Component {
           <main >
             <ErrorMessage
               message={this.state.errorMessage}
+              link={this.state.errorLink}
               addErrorMessageCallback={this.addErrorMessage}
               errorStyle={this.state.errorStyle} />
 
@@ -161,7 +165,8 @@ class AppRouter extends Component {
                   setElectionDatesCallback={this.setElectionDates}
                   baseUrl={baseUrl}
                   setCurrPageCallback={this.setCurrPage}
-                  addErrorMessageCallback={this.addErrorMessage} />}
+                  addErrorMessageCallback={this.addErrorMessage}
+                  clearNameCallback={this.clearName} />}
             />
             <Route
               path="/stats/"

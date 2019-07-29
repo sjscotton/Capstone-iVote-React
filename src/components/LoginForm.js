@@ -39,6 +39,7 @@ class LoginForm extends Component {
     if (!this.state.rememberMe) {
       localStorage.clear();
     }
+    this.props.clearNameCallback()
     this.props.addErrorMessageCallback('', '')
     this.props.getVoterCallback(this.state)
     this.props.history.push('/Loading')
