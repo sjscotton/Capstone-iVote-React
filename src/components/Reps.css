@@ -8,6 +8,7 @@
 ul.contact-info{
   margin: 0;
   min-width: 15rem ;
+  margin-top: .5rem;
 }
 ul.contact-info.phone {
   margin-right: 2rem;
@@ -17,7 +18,8 @@ ul.contact-info.phone {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between
+  justify-content: space-between;
+
 }
 @media only screen and (max-width: 600px) {
   .panel-container {
@@ -45,4 +47,8 @@ p {
 }
 p.name {
   text-align: left;
+}
+
+.rep-photo {
+  width: 4rem;
 }

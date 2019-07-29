@@ -38,10 +38,6 @@ class Reps extends Component {
     }
   }
 
-  // linkPage = (channel) => {
-  //   const win = window.open(socialMediaUrls[channel.type], '_blank');
-  //   win.focus();
-  // }
 
   generateContactInfo(channels) {
     return channels.map((channel, i) => {
@@ -52,12 +48,22 @@ class Reps extends Component {
       )
     })
   }
+
+  getUrlLi(url) {
+    return (
+      <a href={url} rel="noopener noreferrer" target="_blank">
+        <li>Website</li>
+      </a>
+    )
+  }
   generateReps(region) {
     const officials = (this.props.formattedRepData) ? this.props.formattedRepData[region] : [];
-
+    console.log(this.props.formattedRepData)
     return officials.map((rep, i) => {
       const email = (rep.emails) ? `${rep.emails[0]}` : '';
       const socialMedia = (rep.channels) ? this.generateContactInfo(rep.channels) : [];
+      const url = (rep.urls) ? this.getUrlLi(rep.urls[0]) : '';
+
       if (nonElectedPositions.includes(rep.title)) {
         return (<div key={i}></div>)
       } else {
@@ -75,16 +81,18 @@ class Reps extends Component {
 
                 <p className="bold name">{rep.name}</p>
                 <div className="rep-flex">
+
                   <ul className="contact-info phone">
                     <li className="bold">Contact info:</li>
                     <li>{rep.phones[0]}</li>
                     <li>{email}</li>
+                    {url}
                   </ul>
                   <ul className="contact-info ">
                     <li className="bold">Social Media:</li>
                     {socialMedia}
                   </ul>
-
+                  {/* <img className='rep-photo' src={rep.photoUrl} alt="official" /> */}
                 </div>
                 {/* <img src={rep.photoUrl} alt="official" /> */}
               </div>
