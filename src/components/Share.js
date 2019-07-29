@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import domtoimage from 'dom-to-image';
 import './Share.css'
-
+import { Capitalize, GetOrdinal } from '../helpers'
 import logo from '../images/ivote.png';
 
 class Share extends Component {
@@ -45,10 +45,11 @@ class Share extends Component {
 
   generateImageArea() {
     const percentileMessage = (this.props.percentile) ? this.getPercentileMessage() : '';
-    let name = (this.props.firstName) ? this.props.firstName.toLowerCase() : '';
-    if (name) {
-      name = name[0].toUpperCase() + name.slice(1)
-    }
+    let name = Capitalize(this.props.firstName)
+    // let name = (this.props.firstName) ? this.props.firstName.toLowerCase() : '';
+    // if (name) {
+    //   name = name[0].toUpperCase() + name.slice(1)
+    // }
     const voteRecord = `${name} voted in ${this.props.numVotes} of the last ${this.props.maxElections} elections,`
     return (
       <div id='photo' className='photo-container'>
@@ -71,23 +72,12 @@ class Share extends Component {
     )
   }
 
-  getOrdinal(percentile) {
-    let ordinalInd = 'th'
-    if (percentile % 10 === 1) {
-      ordinalInd = 'st'
-    } else if (percentile % 10 === 2) {
-      ordinalInd = 'nd'
-    } else if (percentile % 10 === 3) {
-      ordinalInd = 'rd'
-    }
-    return ordinalInd
-  }
   getPercentileMessage() {
     let message = ''
     if (this.props.percentile[0] > this.props.percentile[1]) {
-      message = `and is in the ${this.props.percentile[0]}${this.getOrdinal()} percentile of voters ages ${this.props.ageGroup} in ${this.props.city}`
+      message = `and is in the ${this.props.percentile[0]}${GetOrdinal(this.props.percentile[0])} percentile of voters ages ${this.props.ageGroup} in ${Capitalize(this.props.city)}`
     } else {
-      message = `and is in the ${this.props.percentile[1]}${this.getOrdinal()} percentile of voters in ${this.props.city}`
+      message = `and is in the ${this.props.percentile[1]}${GetOrdinal(this.props.percentile[1])} percentile of voters in ${Capitalize(this.props.city)}`
     }
 
     return message

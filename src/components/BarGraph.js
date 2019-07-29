@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Capitalize } from '../helpers'
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack, VictoryLabel, VictoryTooltip } from 'victory';
 
 import './Graph.css'
@@ -47,7 +48,7 @@ class BarGraph extends Component {
 
 
       <div className='graph'>
-        <h3>Number of times people voted in {this.props.city}</h3>
+        <h3>Number of times people voted in {Capitalize(this.props.city)}</h3>
         <VictoryChart
           domainPadding={0}
           theme={VictoryTheme.material}

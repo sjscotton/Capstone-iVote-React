@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { VictoryPie, VictoryLabel, VictoryTooltip } from 'victory';
+import { Capitalize } from '../helpers'
 
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
@@ -89,7 +90,7 @@ class PieGraph extends Component {
               {this.generateSelectFields()}
             </Select>
           </FormControl>
-          voted in{this.props.city}</h3>
+          voted in {Capitalize(this.props.city)}</h3>
         <VictoryPie
           colorScale={['#00125c', '#570d68', '#910468', '#c21c60', '#e64450', '#fe723c', '#ffa227', '#ffd321']}
           style={{ labels: { fill: "white", fontSize: 24 } }}

@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
-
+import { GetOrdinal } from '../helpers'
 import './InfoCard.css'
 
 class InfoCard extends Component {
 
   render() {
     const percentile = (isNaN(this.props.percentile)) ? 0 : this.props.percentile;
-    let ordinalInd = 'th'
-    if (percentile % 10 === 1) {
-      ordinalInd = 'st'
-    } else if (percentile % 10 === 2) {
-      ordinalInd = 'nd'
-    } else if (percentile % 10 === 3) {
-      ordinalInd = 'rd'
-    }
+    const ordinalInd = GetOrdinal(percentile)
     const ageMsg = (this.props.group) ? `ages ${this.props.group}` : 'overall';
     return (
       <div className="graph ">
