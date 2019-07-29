@@ -85,11 +85,12 @@ class Stats extends Component {
   render() {
 
     const percentile = this.props.percentile
+    console.log(percentile)
     const stats = this.props.voterInfo.stats
     const ageGroup = this.props.voterInfo.ageGroup
     const ageGroupPercentile = (percentile) ? percentile[0] : this.getPercentile(stats[ageGroup]);
     const overallPercentile = (percentile) ? percentile[1] : this.getPercentile(this.getOverallPercentile(stats));
-    if (!percentile) {
+    if (!percentile && isNaN(ageGroupPercentile) === false) {
       console.log('not percentile')
       this.props.addPercentileCallback([ageGroupPercentile, overallPercentile])
     }

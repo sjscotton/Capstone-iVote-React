@@ -217,6 +217,9 @@ class AppRouter extends Component {
                   maxElections={this.state.maxElections}
                   numVotes={this.state.votingHistory.length}
                   setCurrPageCallback={this.setCurrPage}
+                  percentile={this.state.percentile}
+                  ageGroup={this.state.ageGroup}
+                  city={this.state.city}
 
                 />}
             />
