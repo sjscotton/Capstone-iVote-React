@@ -19,7 +19,7 @@ class Stats extends Component {
   }
 
   componentDidMount() {
-    this.props.addErrorMessageCallback('', '')
+    // this.props.addErrorMessageCallback('', '')
     this.props.setCurrPageCallback('stats')
   }
   generateVotingBoxes(votingDates) {
@@ -90,6 +90,7 @@ class Stats extends Component {
 
     // uncomment this to redirect if user not logged in
     if (!this.props.loggedIn) {
+      this.props.addErrorMessageCallback('We need to lookup your voter information to show this page.', 'warning')
       this.props.history.push('/Login')
     }
     const age = this.props.voterInfo.ageGroup;

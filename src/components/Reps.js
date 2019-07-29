@@ -24,7 +24,7 @@ const socialMediaUrls = {
 class Reps extends Component {
 
   componentDidMount() {
-    this.props.addErrorMessageCallback('', '')
+    // this.props.addErrorMessageCallback('', '')
     this.props.setCurrPageCallback('reps')
   }
 
@@ -99,7 +99,9 @@ class Reps extends Component {
   render() {
     // uncomment this to redirect if user not logged in
     if (!this.props.loggedIn) {
+      // this.props.addErrorMessageCallback('We need to lookup your voter information to show this page.', 'warning')
       this.props.history.push('/Login')
+      this.props.addErrorMessageCallback('We need to lookup your voter information to show this page.', 'warning')
     }
     return (
       <div>
