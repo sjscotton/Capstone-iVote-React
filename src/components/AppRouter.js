@@ -38,6 +38,7 @@ class AppRouter extends Component {
       stats: {},
       errorMessage: '',
       errorStyle: '',
+      percentile: '',
 
     }
   }
@@ -50,8 +51,15 @@ class AppRouter extends Component {
     })
   }
 
+  addPercentile = (percentileArray) => {
+
+    this.setState({ percentile: percentileArray })
+  }
   clearName = () => {
-    this.setState({ firstName: '' })
+    this.setState({
+      firstName: '',
+      percentile: '',
+    })
   }
   getStats() {
     const queryParams = {
@@ -178,6 +186,8 @@ class AppRouter extends Component {
                   voterInfo={this.state}
                   setCurrPageCallback={this.setCurrPage}
                   addErrorMessageCallback={this.addErrorMessage}
+                  addPercentileCallback={this.addPercentile}
+                  percentile={this.state.percentile}
                 />}
             />
             <Route

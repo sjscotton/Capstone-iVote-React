@@ -83,11 +83,16 @@ class Stats extends Component {
     return Math.round((average / totalVotes) * 100)
   }
   render() {
+
+    const percentile = this.props.percentile
     const stats = this.props.voterInfo.stats
     const ageGroup = this.props.voterInfo.ageGroup
-    const ageGroupPercentile = this.getPercentile(stats[ageGroup])
-    const overallPercentile = this.getPercentile(this.getOverallPercentile(stats))
-
+    const ageGroupPercentile = (percentile) ? percentile[0] : this.getPercentile(stats[ageGroup]);
+    const overallPercentile = (percentile) ? percentile[1] : this.getPercentile(this.getOverallPercentile(stats));
+    if (!percentile) {
+      console.log('not percentile')
+      this.props.addPercentileCallback([ageGroupPercentile, overallPercentile])
+    }
     // uncomment this to redirect if user not logged in
     if (!this.props.loggedIn) {
       this.props.addErrorMessageCallback('We need to lookup your voter information to show this page.', 'warning')
