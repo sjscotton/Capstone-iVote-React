@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { VictoryPie, VictoryLabel, VictoryTooltip } from 'victory';
 
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
 import './Graph.css'
 
 class CustomLabel extends Component {
@@ -53,11 +57,39 @@ class PieGraph extends Component {
       })
     }
   }
+
+  generateSelectFields() {
+    return this.props.ageGroups.map((ageGroup, i) => {
+      return (
+        <MenuItem kery={i} value={ageGroup}>{ageGroup}</MenuItem>
+      )
+    })
+  }
+
+  handleChange = (event) => {
+    this.setState({ ageGroup: event.target.value })
+  }
   render() {
     const data = this.pieGraphVotingData(this.state.ageGroup)
+
     return (
       <div className="graph">
-        <h3>Number of times people your age voted in your City</h3>
+        <h3>Number of times people ages
+        <FormControl className=''>
+            <Select
+              value=""
+              onChange={this.handleChange}
+              displayEmpty
+              name="age"
+              className=''
+            >
+              <MenuItem value="">
+                <em>{this.state.ageGroup}</em>
+              </MenuItem>
+              {this.generateSelectFields()}
+            </Select>
+          </FormControl>
+          voted in your City</h3>
         <VictoryPie
           colorScale={['#00125c', '#570d68', '#910468', '#c21c60', '#e64450', '#fe723c', '#ffa227', '#ffd321']}
           style={{ labels: { fill: "white", fontSize: 24 } }}
