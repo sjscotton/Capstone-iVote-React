@@ -75,8 +75,8 @@ class PieGraph extends Component {
 
     return (
       <div className="graph">
-        <h3>Number of times people ages
-        <FormControl className=''>
+        <h3>{'Number of times people ages  '}
+          <FormControl className=''>
             <Select
               value=""
               onChange={this.handleChange}
@@ -90,7 +90,7 @@ class PieGraph extends Component {
               {this.generateSelectFields()}
             </Select>
           </FormControl>
-          voted in {Capitalize(this.props.city)}</h3>
+          {' voted in '}{Capitalize(this.props.city)}</h3>
         <VictoryPie
           colorScale={['#00125c', '#570d68', '#910468', '#c21c60', '#e64450', '#fe723c', '#ffa227', '#ffd321']}
           style={{ labels: { fill: "white", fontSize: 24 } }}

@@ -35,7 +35,7 @@ a {
 
 .nav-list li {
   display: inline-block;
-  margin-right: calc( 8vmin)
+  margin-right: calc( 9vmin)
 }
 .nav-list li:last-child {
   margin-right: 0
@@ -50,10 +50,10 @@ a {
 
 nav.nav-bar {
   background-color: #282c34;
-  height: calc(2.2rem + 3vmin);
+  height: calc(2.7rem + 3vmin);
   display: flex;
   flex-direction: row;
-  font-size: calc(12px + 1vmin);
+  font-size: calc(15px + 1vmin);
   color: white;
 }
 

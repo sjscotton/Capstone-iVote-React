@@ -85,7 +85,7 @@ class Share extends Component {
     const msg = (this.state.image) ? 'Share this image to whichever media platform you prefer.' : '';
     return (
       <div>
-        <div className="flex-container">
+        <div className="flex-container no-flex">
           <div className="photo-padding">
             {stickers}
           </div>

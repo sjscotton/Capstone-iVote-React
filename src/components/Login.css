@@ -6,10 +6,11 @@
 }
 
 
-.login-text {
+.login-text.text {
   text-align: left;
   margin-bottom: 0;
   padding-bottom: 0;
+  padding-left: 0;
 }
 
 @media only screen and (max-width: 600px) {
@@ -21,7 +22,7 @@
 
   }
   .logo.main-logo {
-    width: 12rem;
+    width: 15rem;
   }
  }
  @media only screen and (min-width: 600px) {
@@ -33,6 +34,6 @@
     width: 31rem;
   }
   .logo.main-logo {
-    width: 23rem;
+    width: 25rem;
   }
  }
