@@ -4,7 +4,7 @@ import axios from 'axios';
 import LoginForm from './LoginForm'
 
 import logo from '../images/ivote.png';
-
+import './Login.css'
 
 class Login extends Component {
 
@@ -91,23 +91,46 @@ class Login extends Component {
 
   render() {
     return (
+
       <div >
-        <div className='flex-container'>
-          <img className='logo' src={logo} alt="logo"></img>
-        </div>
-        <h2 className='sub-header'>Welcome!</h2>
-        <div className='flex-container'>
-          <div className='text-container'>
-            <p className='text'>Do I Vote is tool that shows your voting history and how it compares to people in your area.</p>
-            <p className='text'>Please enter your name as it appears on your Washington State voter registration.</p>
+        <div className='flex-container login'>
+          <div className='left-side'>
+            <img className='logo main-logo' src={logo} alt="logo"></img>
+
+            {/* <h2 className='sub-header'>Welcome!</h2> */}
+
+            <p className='login-text text'>Curious about how often you and people in your area vote? Do I Vote is tool that shows your voting history and how it compares to people in your area.</p>
+            <p className='login-text text'>Just enter your name and birthdate as they appear on your Washington State voter registration and well find your voting history!.</p>
+
+          </div>
+          <div className='right-side'>
+            <LoginForm
+              clearNameCallback={this.props.clearNameCallback}
+              getVoterCallback={this.getVoter}
+              addErrorMessageCallback={this.props.addErrorMessageCallback} />
           </div>
         </div>
-        <LoginForm
-          clearNameCallback={this.props.clearNameCallback}
-          getVoterCallback={this.getVoter}
-          addErrorMessageCallback={this.props.addErrorMessageCallback} />
+      </div >
 
-      </div>
+
+
+      // <div >
+      //   <div className='flex-container'>
+      //     <img className='logo' src={logo} alt="logo"></img>
+      //   </div>
+      //   <h2 className='sub-header'>Welcome!</h2>
+      //   <div className='flex-container'>
+      //     <div className='text-container'>
+      //       <p className='text'>Do I Vote is tool that shows your voting history and how it compares to people in your area.</p>
+      //       <p className='text'>Please enter your name as it appears on your Washington State voter registration.</p>
+      //     </div>
+      //   </div>
+      //   <LoginForm
+      //     clearNameCallback={this.props.clearNameCallback}
+      //     getVoterCallback={this.getVoter}
+      //     addErrorMessageCallback={this.props.addErrorMessageCallback} />
+
+      // </div>
     )
   }
 }

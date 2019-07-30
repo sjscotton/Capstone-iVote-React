@@ -1,6 +1,11 @@
 .form-field {
-  margin: .5rem ;
-  display: inline-block;
+  margin: 1rem .5rem;
+  /* display: inline-block; */
+}
+
+.date-field {
+   display: inline-block;
+   margin:.5rem;
 }
 
 .btn {
@@ -13,6 +18,11 @@
 .checkbox {
   margin-top: 1rem;
 }
-.form-lable {
+.form-label {
   margin: 1.5rem 0 .5rem 0;
+  text-align: left;
+}
+
+.date-label {
+  margin-top: 3rem ;
 }

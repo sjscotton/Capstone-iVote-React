@@ -159,11 +159,11 @@ class AppRouter extends Component {
             </ul>
           </nav>
           <main >
-            <ErrorMessage
+            {/* <ErrorMessage
               message={this.state.errorMessage}
               link={this.state.errorLink}
               addErrorMessageCallback={this.addErrorMessage}
-              errorStyle={this.state.errorStyle} />
+              errorStyle={this.state.errorStyle} /> */}
 
             <Route
               path="/login/"
@@ -227,7 +227,11 @@ class AppRouter extends Component {
                 />}
             />
             <Redirect exact from="/" to="/Login" />
-
+            <ErrorMessage
+              message={this.state.errorMessage}
+              link={this.state.errorLink}
+              addErrorMessageCallback={this.addErrorMessage}
+              errorStyle={this.state.errorStyle} />
           </main>
         </div>
       </Router >

@@ -1,1 +1,39 @@
 
+.left-side, .right-side {
+  width: 31rem;
+  margin: calc(1rem + 5vh) 1.5rem 1.5rem 1.5rem ;
+  /* max-width: 30rem; */
+}
+
+
+.login-text {
+  text-align: left;
+}
+
+/* .login {
+  margin-top: calc(1rem + 5vh)
+} */
+@media only screen and (max-width: 600px) {
+  .left-side {
+    width: 90vw
+  }
+  .right-side {
+    width: 90vw
+
+  }
+  .logo.main-logo {
+    width: 12rem;
+  }
+ }
+ @media only screen and (min-width: 600px) {
+  .left-side {
+    width: 31rem;
+  }
+  .right-side {
+
+    width: 31rem;
+  }
+  .logo.main-logo {
+    width: 23rem;
+  }
+ }

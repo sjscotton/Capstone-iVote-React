@@ -50,9 +50,10 @@ class LoginForm extends Component {
       <section className='login-form'>
         <form
           onSubmit={this.onSubmit}>
-          <h3 className='form-lable'>Name</h3>
+          <h3 className='form-label'>Your Name</h3>
           <div className='form-field'>
             <TextField
+              fullWidth
               className='mdc-text-field--outlined'
               label='First'
               variant="outlined"
@@ -65,6 +66,7 @@ class LoginForm extends Component {
           <div className='form-field'>
             <TextField
               className='mdc-text-field--outlined form-field'
+              fullWidth
               label='Last'
               variant="outlined"
               name="lastName"
@@ -73,14 +75,15 @@ class LoginForm extends Component {
               onChange={this.onInputChange}>
             </TextField>
           </div>
-          <h3 className='form-lable'>Birthdate</h3>
-          <div className='form-field'>
+          <h3 className='form-label date-label'>Your Date of Birth</h3>
+          <div className='form-field date-field'>
             <TextField
               className='mdc-text-field--outlined'
               label='Month-MM'
               variant="outlined"
               name="month"
               type="text"
+              style={{ width: 130 }}
               inputProps={{
                 maxLength: 2,
               }}
@@ -89,13 +92,14 @@ class LoginForm extends Component {
 
             </TextField>
           </div>
-          <div className='form-field'>
+          <div className='form-field date-field'>
             <TextField
               className='mdc-text-field--outlined'
               label='Day-DD'
               variant="outlined"
               name="day"
               type="text"
+              style={{ width: 130 }}
               inputProps={{
                 maxLength: 2,
               }}
@@ -103,11 +107,11 @@ class LoginForm extends Component {
               onChange={this.onInputChange}>
             </TextField>
           </div>
-          <div className='form-field'>
+          <div className='form-field date-field'>
             <TextField
               className='mdc-text-field--outlined'
               label='Year-YYYY'
-
+              style={{ width: 172 }}
               variant="outlined"
               name="year"
               type="text"
@@ -138,7 +142,7 @@ class LoginForm extends Component {
               type="submit"
               name="submit"
               value="search"
-              size="medium"
+              size="large"
             >Find my voting history!</Button>
           </div>
 
