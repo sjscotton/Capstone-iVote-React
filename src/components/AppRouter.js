@@ -60,6 +60,7 @@ class AppRouter extends Component {
       percentile: '',
       ageGroup: '',
       stats: {},
+      loggedIn: false,
     })
   }
   getStats() {
@@ -158,11 +159,6 @@ class AppRouter extends Component {
             </ul>
           </nav>
           <main >
-            {/* <ErrorMessage
-              message={this.state.errorMessage}
-              link={this.state.errorLink}
-              addErrorMessageCallback={this.addErrorMessage}
-              errorStyle={this.state.errorStyle} /> */}
 
             <Route
               path="/login/"

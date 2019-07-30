@@ -79,15 +79,6 @@
   background-image: url("https://i.imgur.com/GERvwBT.png")
 }
 
-
-/* .sticker:nth-child(1) { animation-delay: 400ms; }
-.sticker:nth-child(2) { animation-delay: 800ms; }
-.sticker:nth-child(3) { animation-delay: 1200ms; }
-.sticker:nth-child(4) { animation-delay: 1600ms; }
-.sticker:nth-child(5) { animation-delay: 2000ms; }
-.sticker:nth-child(6) { animation-delay: 2400ms; }
-.sticker:nth-child(7) { animation-delay: 2800ms; } */
-
 .sticker:nth-child(1) { animation-delay: 300ms; }
 .sticker:nth-child(2) { animation-delay: 600ms; }
 .sticker:nth-child(3) { animation-delay: 900ms; }

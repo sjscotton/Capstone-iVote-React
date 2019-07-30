@@ -41,7 +41,10 @@ class LoginForm extends Component {
     }
     this.props.clearNameCallback()
     this.props.addErrorMessageCallback('', '')
-    this.props.getVoterCallback(this.state)
+    const userData = this.state
+    userData.firstName = userData.firstName.trim()
+    userData.lastName = userData.lastName.trim()
+    this.props.getVoterCallback(userData)
     this.props.history.push('/Loading')
   }
 
@@ -83,7 +86,7 @@ class LoginForm extends Component {
               variant="outlined"
               name="month"
               type="text"
-              style={{ width: 130 }}
+              style={{ width: 138 }}
               inputProps={{
                 maxLength: 2,
               }}
@@ -99,7 +102,7 @@ class LoginForm extends Component {
               variant="outlined"
               name="day"
               type="text"
-              style={{ width: 130 }}
+              style={{ width: 138 }}
               inputProps={{
                 maxLength: 2,
               }}
@@ -107,11 +110,11 @@ class LoginForm extends Component {
               onChange={this.onInputChange}>
             </TextField>
           </div>
-          <div className='form-field date-field'>
+          <div className='form-field date-field '>
             <TextField
               className='mdc-text-field--outlined'
               label='Year-YYYY'
-              style={{ width: 172 }}
+              style={{ width: 170 }}
               variant="outlined"
               name="year"
               type="text"

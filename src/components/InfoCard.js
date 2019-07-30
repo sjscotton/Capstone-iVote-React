@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { GetOrdinal } from '../helpers'
+import { GetOrdinal, Capitalize } from '../helpers'
 import './InfoCard.css'
 
 class InfoCard extends Component {
@@ -13,7 +13,7 @@ class InfoCard extends Component {
         <div className=" info-card">
           <p id='txt-1'>You are in the</p>
           <h1 id='txt-2'>{`${percentile}${ordinalInd}`}</h1>
-          <p id='txt-3'>percentile of voters</p>
+          <p id='txt-3'>percentile of voters in {Capitalize(this.props.city)}</p>
           <p id='txt-4'>{ageMsg}</p>
         </div>
       </div>
