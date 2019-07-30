@@ -100,7 +100,8 @@ class Login extends Component {
             {/* <h2 className='sub-header'>Welcome!</h2> */}
 
             <p className='login-text text'>Curious about how often you and people in your area vote? Do I Vote is tool that shows your voting history and how it compares to people in your area.</p>
-            <p className='login-text text'>Just enter your name and birthdate as they appear on your Washington State voter registration and well find your voting history!.</p>
+            <p className='login-text text'>Just enter your name and birthdate as they appear on your Washington State voter registration and well find your voting history!</p>
+            <p className='login-text text'>Data currently contains voting history from February 2017 to February 2019</p>
 
           </div>
           <div className='right-side'>

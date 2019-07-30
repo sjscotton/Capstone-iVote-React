@@ -43,7 +43,7 @@ class Reps extends Component {
     return channels.map((channel, i) => {
       return (
         <a key={i} href={`${socialMediaUrls[channel.type]}${channel.id}`} rel="noopener noreferrer" target="_blank">
-          <li >{this.getSocialMediaIcon(channel.type)}{`${channel.id}`}</li>
+          <li >{this.getSocialMediaIcon(channel.type)}{`  ${channel.id}`}</li>
         </a>
       )
     })

@@ -100,5 +100,7 @@ nav.nav-bar {
 .text-container {
   max-width: 40rem;
 }
-
+.loading {
+  margin-top: calc(1rem + 3vh);
+}
 
