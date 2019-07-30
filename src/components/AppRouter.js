@@ -12,7 +12,6 @@ import ErrorMessage from './ErrorMessage'
 import axios from 'axios';
 import './AppRouter.css'
 
-// import { throwStatement } from '@babel/types';
 
 // const baseUrl = 'http://localhost:7000/ivote/'
 const baseUrl = 'http://ec2-34-212-21-218.us-west-2.compute.amazonaws.com/ivote/'

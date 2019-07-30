@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faCoffee, FaFacebookSquare } from '@fortawesome/free-solid-svg-icons'
 import { FaFacebookSquare, FaTwitterSquare, FaYoutubeSquare } from "react-icons/fa";
 
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
@@ -94,7 +92,6 @@ class Reps extends Component {
                   </ul>
                   {/* <img className='rep-photo' src={rep.photoUrl} alt="official" /> */}
                 </div>
-                {/* <img src={rep.photoUrl} alt="official" /> */}
               </div>
 
             </ExpansionPanelDetails>
@@ -107,7 +104,6 @@ class Reps extends Component {
   render() {
     // uncomment this to redirect if user not logged in
     if (!this.props.loggedIn) {
-      // this.props.addErrorMessageCallback('We need to lookup your voter information to show this page.', 'warning')
       this.props.history.push('/Login')
       this.props.addErrorMessageCallback('We need to lookup your voter information to show this page.', 'warning')
     }

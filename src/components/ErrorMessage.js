@@ -11,7 +11,6 @@ const ErrorMessage = (props) => {
     hidden = ''
   }
 
-  // console.log(props.addErrorMessageCallback)
   return (
     <div className={`${hidden} flex-container ${errorMessageStyle}`}>
 
@@ -19,9 +18,7 @@ const ErrorMessage = (props) => {
         <div className='error-btn'>
           <Button
             variant="contained"
-            // variant="outlined"
             onClick={() => { props.addErrorMessageCallback('') }}
-
           >
             X
         </Button>

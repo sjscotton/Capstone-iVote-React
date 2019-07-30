@@ -1,17 +1,4 @@
-/* 
-.sticker {
-  width: 5rem;
-  height: 5rem;
-  margin: 1rem;
-  border-radius: 25%;
-}
-.vote {
-  background-color: rgb(37, 92, 150);
-}
 
-.no-vote {
-  background-color: rgb(190, 47, 47);
-} */
 .stickers-container {
   margin-bottom: 4rem;
   margin-top: 2rem;

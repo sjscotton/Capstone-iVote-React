@@ -46,10 +46,6 @@ class Share extends Component {
   generateImageArea() {
     const percentileMessage = (this.props.percentile) ? this.getPercentileMessage() : '';
     let name = Capitalize(this.props.firstName)
-    // let name = (this.props.firstName) ? this.props.firstName.toLowerCase() : '';
-    // if (name) {
-    //   name = name[0].toUpperCase() + name.slice(1)
-    // }
     const voteRecord = `${name} voted in ${this.props.numVotes} of the last ${this.props.maxElections} elections,`
     return (
       <div id='photo' className='photo-container'>

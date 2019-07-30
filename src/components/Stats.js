@@ -31,20 +31,6 @@ class Stats extends Component {
     })
   }
 
-  // pieGraphVotingData(ageGroup) {
-  //   const data = this.props.voterInfo.stats[ageGroup]
-  //   if (data) {
-  //     const sampleSize = data.reduce((a, b) => a + b, 0)
-  //     return data.map((voterFreq, i) => {
-  //       const numVotes = (i === 0) ? '0' : i;
-  //       if (voterFreq === 0) {
-  //         return { label: '', y: '', percent: '' }
-  //       }
-  //       const data = { label: numVotes, y: voterFreq, percent: Math.round((voterFreq / sampleSize) * 100) }
-  //       return data
-  //     })
-  //   }
-  // }
   onButtonClick = () => {
     this.props.history.push('/Share')
   }
