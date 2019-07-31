@@ -56,7 +56,6 @@ class Reps extends Component {
   }
   generateReps(region) {
     const officials = (this.props.formattedRepData) ? this.props.formattedRepData[region] : [];
-    console.log(this.props.formattedRepData)
     return officials.map((rep, i) => {
       const email = (rep.emails) ? `${rep.emails[0]}` : '';
       const socialMedia = (rep.channels) ? this.generateContactInfo(rep.channels) : [];
@@ -110,7 +109,6 @@ class Reps extends Component {
     return (
       <div>
         <h1 className='title'>Your Representatives</h1>
-        {/* <p>{this.props.address}</p> */}
         <div className='flex-container'>
           <div className="panel-container">
             <h3>City</h3>

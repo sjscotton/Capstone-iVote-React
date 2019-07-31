@@ -22,7 +22,7 @@ class Share extends Component {
       // Most of this function is taken from the domtoimage documentation 
       // https://ourcodeworld.com/articles/read/38/how-to-capture-an-image-from-a-dom-element-with-javascript
       domtoimage.toPng(node).then(function (dataUrl) {
-        var img = new Image();
+        let img = new Image();
         img.src = dataUrl
         that.setState({ image: dataUrl })
       }).catch(function (error) {

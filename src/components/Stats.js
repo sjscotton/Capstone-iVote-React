@@ -71,13 +71,11 @@ class Stats extends Component {
   render() {
 
     const percentile = this.props.percentile
-    console.log("inside stats", this.props)
     const stats = this.props.voterInfo.stats
     const ageGroup = this.props.voterInfo.ageGroup
     const ageGroupPercentile = (percentile) ? percentile[0] : this.getPercentile(stats[ageGroup]);
     const overallPercentile = (percentile) ? percentile[1] : this.getPercentile(this.getOverallPercentile(stats));
     if (!percentile && isNaN(ageGroupPercentile) === false) {
-      console.log('not percentile')
       this.props.addPercentileCallback([ageGroupPercentile, overallPercentile])
     }
     // uncomment this to redirect if user not logged in
@@ -85,8 +83,7 @@ class Stats extends Component {
       this.props.addErrorMessageCallback('We need to lookup your voter information to show this page.', 'warning')
       this.props.history.push('/Login')
     }
-    // const age = this.props.voterInfo.ageGroup;
-    // const data = this.pieGraphVotingData(age);
+
     const voteRecord = `You voted in ${this.props.votingHistory.length} of the last ${this.props.voterInfo.maxElections} elections.`
     return (
       <div>

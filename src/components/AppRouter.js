@@ -43,8 +43,6 @@ class AppRouter extends Component {
     }
   }
   addErrorMessage = (message, style) => {
-    console.log("in addErrorMessage")
-    console.log(message)
     this.setState({
       errorMessage: message,
       errorStyle: style,

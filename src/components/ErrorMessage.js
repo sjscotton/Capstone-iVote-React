@@ -23,7 +23,6 @@ const ErrorMessage = (props) => {
             X
         </Button>
         </div>
-        {/* <button onClick={() => { props.addErrorMessageCallback('') }} className="close" >close</button> */}
         <div className='error-message'>
           {props.message}
         </div>

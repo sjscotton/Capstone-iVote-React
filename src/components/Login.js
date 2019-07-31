@@ -59,12 +59,10 @@ class Login extends Component {
         this.getVotingHistory({ rememberMe: userParams.rememberMe, voterID: data.voter_id, })
       })
       .catch((error) => {
-        console.log(error.message)
         if (error.message === 'Request failed with status code 400') {
           const message = "Cant make request, ensure all form fields are filled out"
           this.props.addErrorMessageCallback(message, 'warning')
         } else {
-          console.log('404')
           const message = <p>Unable to find voter information. Please make sure all fields are as they appear on your washington state voting registration. You can check your voter registration or register to vote at <a href="https://www.sos.wa.gov/elections/voters/">https://www.sos.wa.gov</a>.</p>
           // const link = <a href="https://www.sos.wa.gov/elections/voters/">https://www.sos.wa.gov</a>
           this.props.addErrorMessageCallback(message, 'warning')
@@ -83,7 +81,6 @@ class Login extends Component {
         this.props.history.push('/Stats')
       })
       .catch((error) => {
-        console.log(error.message)
         this.props.history.push('/Login')
       })
   }
@@ -97,7 +94,6 @@ class Login extends Component {
           <div className='left-side'>
             <img className='logo main-logo' src={logo} alt="logo"></img>
 
-            {/* <h2 className='sub-header'>Welcome!</h2> */}
             <p className='login-text text'>Curious about how often you and people in your area vote? Do I Vote is tool that shows your voting history and how it compares to people in your area.</p>
             <p className='login-text text'>Just enter your name and birthdate as they appear on your Washington State voter registration and we'll find your voting history!</p>
             <p className='login-text text'>Data currently contains voting history from February 2017 to February 2019</p>
