@@ -46,10 +46,6 @@ h2.photo-text {
   margin-top: 8vh ;
 }
 
-/* .share-logo {
-  padding-bottom: 1.5rem;
-} */
-
 
 @media only screen and (max-width: 600px) {
   .img-sticker {
@@ -79,6 +75,7 @@ h2.photo-text {
     padding-bottom: .5rem;
     margin-top: .5rem;
     width: 9rem;
+    height: 6.5rem;
   }
   .photo-text {
     font-family: 'Times New Roman', Times, serif;
