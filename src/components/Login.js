@@ -24,6 +24,7 @@ class Login extends Component {
 
     this.props.setCurrPageCallback('login')
     const voterID = localStorage.getItem('voterID')
+
     if (voterID && !this.props.loggedIn) {
       this.getVoter({ voterID: voterID })
     }
@@ -51,9 +52,9 @@ class Login extends Component {
           ageGroup: data.age_group,
           rememberMe: userParams.rememberMe,
         }
-        if (voterInfo.rememberMe) {
-          localStorage.setItem('voterID', voterInfo.voterID)
-        }
+        // if (voterInfo.rememberMe) {
+        //   localStorage.setItem('voterID', voterInfo.voterID)
+        // }
         this.props.addErrorMessageCallback('', '')
         this.props.addVoterCallback(voterInfo)
         this.getVotingHistory({ rememberMe: userParams.rememberMe, voterID: data.voter_id, })
@@ -72,11 +73,15 @@ class Login extends Component {
   }
 
   getVotingHistory(voterInfo) {
+
     const returningUser = (localStorage.getItem('voterID')) ? true : false;
     const rememberMe = (voterInfo.rememberMe) ? true : false;
     axios.get(this.props.baseUrl + 'vote_dates', { params: { state_voter_id: voterInfo.voterID, returning_user: returningUser, remember_me: rememberMe } })
       .then((response) => {
         voterInfo.votingHistory = response.data.voting_days
+        if (voterInfo.rememberMe) {
+          localStorage.setItem('voterID', voterInfo.voterID)
+        }
         this.props.loginCallback(voterInfo)
         this.props.history.push('/Stats')
       })

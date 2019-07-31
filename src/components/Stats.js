@@ -88,7 +88,7 @@ class Stats extends Component {
     return (
       <div>
 
-        <h1 className='title'>Your Voting Statistics</h1>
+        <h1 className='title'>Voting Statistics</h1>
 
         <p className='text'>{voteRecord}</p>
         <div className="flex-container">

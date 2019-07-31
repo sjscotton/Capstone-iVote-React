@@ -56,7 +56,7 @@ class BarGraph extends Component {
           <VictoryAxis
             tickValues={[0, 1, 2, 3, 4, 5]}
             tickFormat={["0", "1", "2", "3", "4", "5"]}
-            label={`Times Voted in the last ${this.props.maxElections} elections`}
+            label={`Times voted in the last ${this.props.maxElections} elections`}
             style={{
               axis: { stroke: "#756f6a" },
               axisLabel: { fontSize: 20, padding: 30 },
@@ -65,7 +65,7 @@ class BarGraph extends Component {
           />
           <VictoryAxis
             dependentAxis
-            label={'Percent of Voters'}
+            label={'Percent of voters'}
             style={{
               axis: { stroke: "#756f6a" },
               axisLabel: { fontSize: 20, padding: 30 },
